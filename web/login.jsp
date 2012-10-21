@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>REGISTRO DE PORTATILES</title>
+        <title>Iniciar Sesión</title>
         <link type="text/css" href="css/estilos.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
@@ -25,8 +25,8 @@
                <img src="imagenes/logo.jpg" width="282px" height="91px"  /> 
             </div>
             <div id="titulo">
-              Sistema de Registro de Portatiles 
-              Bolivar Rave
+              Sistema de Registro de Portátiles 
+              Bolívar Rave
               </div>
         </div>
         <div class="cuerpo" id="content"> 
@@ -54,13 +54,14 @@
 
 
         </div>
-        <div id="finalpagina">
+        <div id="finalpaginalogin">
             <br>
          CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
           Medellin - Colombia <br>
          JEOVANY ROJAS MEDINA <br>
           SERGIO MOSQUERA <br>
           AÑO 2012 
+                   
         </div>
 
     </body>

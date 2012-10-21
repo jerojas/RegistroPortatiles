@@ -49,17 +49,25 @@ $(document).ready(function(){
         var resultado_ok=true; 
 	
 		 		
-        if($("#nombre").val() == "") { 
-            $("#nombre").css("background", "23E727");
+        if($("#cod").val() == "") { 
+            $("#errorcodigo").html("* Falta ingresar el Código");
+            $("#cod").addClass("active");
+            $("#errorcodigo").fadeIn();
+            $("#capaerrores").css("display","block");
+            $("#errorcodigo").css("display","block");
+
+            resultado_ok=false;				        
+        }
+        
+         if($("#nombre").val() == "") { 
             $("#errornombre").html("* Falta ingresar el Nombre");
             $("#nombre").addClass("active");
             $("#errornombre").fadeIn();
             $("#capaerrores").css("display","block");
             $("#errornombre").css("display","block");
 
-	
             resultado_ok=false;				        
-        }  
+        }
 		
         if($("#ape").val() == "") { 
             $("#ape").css("background", "23E727");
@@ -70,6 +78,16 @@ $(document).ready(function(){
             $("#errorape").css("display","block");
             resultado_ok=false;		
         }
+        if($("#doc").val() == "") { 
+            $("#doc").css("background", "23E727");
+            $("#errordoc").html("* Falta ingresar el Documento de Identidad");
+            $("#doc").addClass("active");
+            $("#errordoc").fadeIn();
+            $("#capaerrores").css("display","block");
+            $("#errordoc").css("display","block");
+            resultado_ok=false;		
+        }
+        
         if($("#correoo").val() == "") {  
             $("#correoo").css("background", "23E727");
             $("#errorcorreoo").html("* Falta ingresar el Correo Electrónico"); 
@@ -90,8 +108,7 @@ $(document).ready(function(){
             resultado_ok=false;		
          
         }
-        
-                              
+                             
         if($("#passwor").val() == "") { 
             $("#passwor").css("background", "23E727");
             $("#errorpasswor").html("* Falta ingresar la Password");
@@ -112,24 +129,46 @@ $(document).ready(function(){
             resultado_ok=false;		
            
         }
-       
-              if($("#tel").val() == "") {  
-            $("#tel").css("background", "23E727");
-            $("#errortel").html("* Falta ingresar el número telefónico");   
-            $("#tel").addClass("active");
-            $("#errortel").fadeIn();
+                           
+         if($("#carrera").val() == "") {  
+            $("#errorcarrera").html("* Falta ingresar la Carrera");   
+            $("#carrera").addClass("active");
+            $("#errorcarrera").fadeIn();
             $("#capaerrores").css("display","block");
-            $("#errortel").css("display","block");
+            $("#errorcarrera").css("display","block");
             resultado_ok=false;		
         }
 
-        if($("#genero").val() == 2) { 
-            $("#genero").css("background", "23E727");		
-            $("#errorgenero").html("* No ha seleccionado su género"); 
-            $("#genero").addClass("active");
-            $("#errorgenero").fadeIn();
+        if($("#semestre").val() == 1) { 
+            $("#errorsemestre").html("* No ha seleccionado el Semestre"); 
+            $("#semestre").addClass("active");
+            $("#errorsemestre").fadeIn();
             $("#capaerrores").css("display","block");
-            $("#errorgenero").css("display","block");
+            $("#errorsemestre").css("display","block");
+            resultado_ok=false;		
+        }
+        if($("#mac").val() == "") { 
+            $("#errormac").html("* No ha ingresado la MAC del Portátil"); 
+            $("#mac").addClass("active");
+            $("#errormac").fadeIn();
+            $("#capaerrores").css("display","block");
+            $("#errormac").css("display","block");
+            resultado_ok=false;		
+        }
+        if($("#pc").val() == "") { 
+            $("#errorpc").html("* No ha ingresado la Marca del Portátil"); 
+            $("#pc").addClass("active");
+            $("#errorpc").fadeIn();
+            $("#capaerrores").css("display","block");
+            $("#errorpc").css("display","block");
+            resultado_ok=false;		
+        }
+        if($("#color").val() == "") { 
+            $("#errorcolor").html("* No ha ingresado el color del Portátil"); 
+            $("#color").addClass("active");
+            $("#errorcolor").fadeIn();
+            $("#capaerrores").css("display","block");
+            $("#errorcolor").css("display","block");
             resultado_ok=false;		
         }
 
@@ -157,6 +196,34 @@ $(document).ready(function(){
         }
     });
     
+     $("#cod").keypress(function(e) { 
+        //(var key = condicion? valorsitrue: valorsifalse)
+        var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+        //presiono borrar
+        if (key==8){
+            return true;
+        }
+        // si es presionado un numero
+        if(key < 48 || key > 57)
+        { 
+            return false;
+        }
+    });
+    
+     $("#doc").keypress(function(e) { 
+        //(var key = condicion? valorsitrue: valorsifalse)
+        var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+        //presiono borrar
+        if (key==8){
+            return true;
+        }
+        // si es presionado un numero
+        if(key < 48 || key > 57)
+        { 
+            return false;
+        }
+    });
+    
     //prueba 
        //validar contraseña y repeticion contraseña
     $("#passwor,#repitapassword").blur(function(){        
@@ -165,6 +232,7 @@ $(document).ready(function(){
             
             $("#capaerrores").css("display","block");
             $("#validar").attr('disabled', 'disabled');
+            $("#errorvalpassword").css("display","block");
         }
         else{
             $("#errorvalpassword").html(""); 
@@ -173,22 +241,7 @@ $(document).ready(function(){
              $("#validar").attr('disabled', false);
         }
          });
-       //prueba
-       
-    
-   
-//    $("#validar").click(function(){
-//        $("#capaerrores").css("display","none");	
-//		
-//    });
-//    
-//    
-   
-   
 
-                        
-                        
-  //
     
 });
     

@@ -50,7 +50,7 @@ margin: 0px; padding: 0px
 }
 .btn{
     text-align: center;  
-     margin-top: 71px;
+     margin-top: 3px;
 }
 .campos select{
     width: 210px;
@@ -202,21 +202,19 @@ background: yellow;
 color:       #006633;
     
 }
-#finalpaginalogin{
+#finalpaginausuarios{
     
      background: none repeat scroll 0 0 #99FFFF;
     height: 100px;
     left: 70px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 532px;
+    top: 517px;
     width: 1213px;
      font-weight:bold;
       font-size: 12px;
        font-family:'Arial';
-color:  #006633;
-
-
+color:       #006633;
     
 }
 
@@ -281,7 +279,7 @@ height: auto;
 padding: 5px;
 width: 794px;
 color: red;
-margin-top: 47px;
+margin-top: 49px;
 margin-left: 207px;
 	 
 	}
@@ -449,7 +447,7 @@ padding: 5px;
 
 #marcos{
     
-   height: 245px;
+  height: 192px;
     margin-left: 209px;
     margin-top: 49px;
     width: 780px;
@@ -462,26 +460,17 @@ padding: 5px;
 #segfila{
    
     margin-left: 270px;
-    margin-top: -166px;
+   margin-top: -166px;
     width: 211px;
 }
 #terfila{
    
     margin-left: 546px;
-    margin-top: -222px;
+   margin-top: -165px;
     width: 211px;
 }
 
-#logoportal{
-    float: left;
-width: 285px;
-margin-left: 10px;
-margin-top: -86px;
-  
-}
-#logounac{
-    float: right;
-  width: 100px;  
-  left: 500px;
-  background: red;
+#aster{
+    text-align: center;
+margin-top: 73px;
 }

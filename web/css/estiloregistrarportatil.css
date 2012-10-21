@@ -207,16 +207,14 @@ color:       #006633;
      background: none repeat scroll 0 0 #99FFFF;
     height: 100px;
     left: 70px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 532px;
+    top: 586px;
     width: 1213px;
      font-weight:bold;
       font-size: 12px;
        font-family:'Arial';
-color:  #006633;
-
-
+color:       #006633;
     
 }
 
@@ -281,7 +279,7 @@ height: auto;
 padding: 5px;
 width: 794px;
 color: red;
-margin-top: 47px;
+margin-top: 34px;
 margin-left: 207px;
 	 
 	}
@@ -462,7 +460,7 @@ padding: 5px;
 #segfila{
    
     margin-left: 270px;
-    margin-top: -166px;
+    margin-top: -221px;
     width: 211px;
 }
 #terfila{
@@ -472,16 +470,3 @@ padding: 5px;
     width: 211px;
 }
 
-#logoportal{
-    float: left;
-width: 285px;
-margin-left: 10px;
-margin-top: -86px;
-  
-}
-#logounac{
-    float: right;
-  width: 100px;  
-  left: 500px;
-  background: red;
-}
