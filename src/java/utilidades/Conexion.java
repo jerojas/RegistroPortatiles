@@ -37,7 +37,7 @@ public class Conexion {
         //Datos de la conexion
         this.driver = "com.mysql.jdbc.Driver";
         this.urlDB = "jdbc:mysql://localhost/registroportatiles";
-        this.userBD = "root";
+        this.userBD = "RegPortatiles";
         this.passBD = "toor11";
     }
 

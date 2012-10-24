@@ -6,13 +6,19 @@
 <%
 
         String nombre = request.getParameter("correoo");
+        String codigo = (String)request.getAttribute("cod");
     Integer guardo = (Integer) request.getAttribute("guardoOK");
     String mensaje = "";
     String mensaje2 = "";
+     String mensaje3 = "";
     String accion = "insertar";//la acción será un nuevo registro 
     
     if (guardo != null) {
-        mensaje2 = "Regitro ingresado exitosamente";
+        mensaje2 = "Registro ingresado exitosamente";
+    }
+    
+    if (codigo != null ) {
+        mensaje3 = "El Código ya existe. Por favor digite otro codigo ";
     }
     
 
@@ -131,17 +137,19 @@
 
                     </div>
                 </ul>
-                    <div id="aster">(*) Campos Obligatorios</div>
-                <div class="btn">
-                    <input type="submit" id = "validar" name="validar" value="REGISTRARSE"/>
-                    <br>
-                    <br> 
-                      <b><font color="RED"><%=mensaje2%></font></b>
-
-                </div>
+                    
             </div>
                     
         </fieldset> 
+                    <div id="aster">(*) Campos Obligatorios</div>
+                <div class="btn">
+                    <input type="button" id = "validar" name="validar" value="REGISTRARSE"/>
+                    <br>
+                    <br> 
+       <b><font color="RED"><%=mensaje2%></font></b>
+       <b><font color="RED"><%=mensaje3%></font></b>               
+
+                </div>
                  <input type="hidden" name="accion" value="<%=accion%>" />
     </form>
 
@@ -171,8 +179,10 @@
         </div>
         <div class= "alerta" id="errordoc">
         </div>
+        
 
     </div>
+    
 
 </div>
 <div id="finalpaginausuarios">

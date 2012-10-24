@@ -39,10 +39,10 @@
 		<li><a href="#"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
 		<li><a href="#"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
 	</ul></li>
-	<li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Porteros</span></a>
+	<li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Usuarios</span></a>
 	<ul>
-		<li><a href="RegistrarUsuarios.jsp" href="#"><img src="css3menu1/256sub1.png" alt=""/>Registrar Porteros</a></li>
-		<li><a href="#"><img src="css3menu1/256sub2.png" alt=""/>Editar y Eliminar Portátiles</a></li>
+		<li><a href="RegistrarUsuarios.jsp" href="#"><img src="css3menu1/256sub1.png" alt=""/>Registrar Usuarios</a></li>
+		<li><a href="ControlarUsuarios?accion=listar" href="#"><img src="css3menu1/256sub2.png" alt=""/>Editar y Eliminar Usuarios</a></li>
 	</ul></li>
 	<li class="toplast"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/256sub12.png" alt=""/>Reportes</span></a>
 	<ul>
