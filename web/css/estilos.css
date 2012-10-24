@@ -1,12 +1,12 @@
 
 body 
 {
-background-color: transparent;
-margin: 0px; padding: 0px
+    background-color: transparent;
+    margin: 0px; padding: 0px
 
 }
 .principal{
-        height: 268px;
+    height: 268px;
     left: 13px;
     position: relative;
     text-align: left;
@@ -14,15 +14,15 @@ margin: 0px; padding: 0px
     width: 778px;
 }
 .formgeneral{
-   
+
     background: none repeat scroll 0 0 blue;
     height: 298px;
     margin-left: 167px;
     width: 355px;
 }
 .formgeneral2{
-   
-   background: none repeat scroll 0 0 blue;
+
+    background: none repeat scroll 0 0 blue;
     height: 298px;
     margin-left: 595px;
     position: relative;
@@ -31,26 +31,26 @@ margin: 0px; padding: 0px
 }
 
 .campos{    
-   background: none repeat scroll 0 0 red;
+    background: none repeat scroll 0 0 red;
     margin-bottom: 30px;
     width: 328px;
-    
+
 }
 
 .colum2{
-    
-    
+
+
 }
 .label{
     border: 1px solid black;
     margin-left: 66px;
     margin-top: 12px;
     width: 150px;
-    
+
 }
 .btn{
     text-align: center;  
-     margin-top: 71px;
+    margin-top: 71px;
 }
 .campos select{
     width: 210px;
@@ -73,7 +73,7 @@ margin: 0px; padding: 0px
     font-family: serif;
     font-weight: bold;
 }
-    
+
 .campos2{    
     background: none repeat scroll 0 0 red;
     height: 40px;
@@ -93,11 +93,11 @@ margin: 0px; padding: 0px
 }
 
 h2{
-text-align: center; 
+    text-align: center; 
 }
 h3{
-background-color: #F9F355;
- border: 5px solid #70F51D;
+    background-color: #F9F355;
+    border: 5px solid #70F51D;
 }
 
 #boton{
@@ -117,69 +117,69 @@ background-color: #F9F355;
 
 }
 #submit{
-background: yellow;
+    background: yellow;
 }
 
 .header{
-  
+
     height: 60%;
-   
+
     width: 89%;
     background-color: white;
     margin-top: 5px;
     margin-left: 70px;
     /*border: 10px groove whitesmoke; */
     border-radius: 25px;
-    
-  
+
+
 }
 .cuerpo{
 
-/*border: 1px solid black;*/
-  /*  height: 450px;
-   width: 89%;
-   margin-left: 70px;
-   /*border: 10px outset #cccccc;*/
-   /*background-color: whitesmoke;
-    border-radius: 25px;*/
-    
-  background-color: #CCFFCC;
+    /*border: 1px solid black;*/
+    /*  height: 450px;
+     width: 89%;
+     margin-left: 70px;
+     /*border: 10px outset #cccccc;*/
+    /*background-color: whitesmoke;
+     border-radius: 25px;*/
+
+    background-color: #CCFFCC;
     height: 450px;
     left: 70px;
     position: absolute;
     top: 181px;
     width: 1213px;
-    
+
 }
 .cuerporeg{
 
-/*border: 1px solid black;*/
-  /*  height: 450px;
-   width: 89%;
-   margin-left: 70px;
-   /*border: 10px outset #cccccc;*/
-   /*background-color: whitesmoke;
-    border-radius: 25px;*/
-    
-   background-color: #CCFFCC;
+    /*border: 1px solid black;*/
+    /*  height: 450px;
+     width: 89%;
+     margin-left: 70px;
+     /*border: 10px outset #cccccc;*/
+    /*background-color: whitesmoke;
+     border-radius: 25px;*/
+
+    background-color: #CCFFCC;
     height: 592px;
     left: 70px;
     position: absolute;
     top: 181px;
     width: 1213px;
-    
+
 }
 .cuerpoindex{
 
-/*border: 1px solid black;*/
-  /*  height: 450px;
-   width: 89%;
-   margin-left: 70px;
-   /*border: 10px outset #cccccc;*/
-   /*background-color: whitesmoke;
-    border-radius: 25px;*/
-    
-  background-color: #CCFFCC;
+    /*border: 1px solid black;*/
+    /*  height: 450px;
+     width: 89%;
+     margin-left: 70px;
+     /*border: 10px outset #cccccc;*/
+    /*background-color: whitesmoke;
+     border-radius: 25px;*/
+
+    background-color: #CCFFCC;
     height: 60%;
     left: 70px;
     position: absolute;
@@ -188,42 +188,42 @@ background: yellow;
 }
 
 #finalpagina{
-    
-     background: none repeat scroll 0 0 #99FFFF;
+
+    background: none repeat scroll 0 0 #99FFFF;
     height: 100px;
     left: 70px;
     position: relative;
     text-align: center;
     top: 595px;
     width: 1213px;
-     font-weight:bold;
-      font-size: 12px;
-       font-family:'Arial';
-color:       #006633;
-    
+    font-weight:bold;
+    font-size: 12px;
+    font-family:'Arial';
+    color:       #006633;
+
 }
 #finalpaginalogin{
-    
-     background: none repeat scroll 0 0 #99FFFF;
+
+    background: none repeat scroll 0 0 #99FFFF;
     height: 100px;
     left: 70px;
     position: absolute;
     text-align: center;
     top: 532px;
     width: 1213px;
-     font-weight:bold;
-      font-size: 12px;
-       font-family:'Arial';
-color:  #006633;
+    font-weight:bold;
+    font-size: 12px;
+    font-family:'Arial';
+    color:  #006633;
 
 
-    
+
 }
 
 
 .ingresar{
 
- 
+
 }
 
 #logo{
@@ -233,15 +233,15 @@ color:  #006633;
     position: absolute;
     top: 81px;
     width: 21%;
-   
- 
+
+
 }
 #entrar{
-background: yellow;
+    background: yellow;
 }
 .formulario{
 
-     background: none repeat scroll 0 0 #B7E4B4;
+    background: none repeat scroll 0 0 #B7E4B4;
     border: 1px inset whitesmoke;
     border-radius: 30px 30px 30px 30px;
     height: auto;
@@ -266,30 +266,30 @@ background: yellow;
 
 #tabs{
 
-   bottom: -580px;
+    bottom: -580px;
     margin-right: 488px;
     margin-top: -284px;
     top: 441px;
     height: 75%;
-     
-	}
 
-	#capaerrores{
-	background: #E6E6AA;
-border: 1px solid red;
-height: auto;
-padding: 5px;
-width: 794px;
-color: red;
-margin-top: 47px;
-margin-left: 207px;
-	 
-	}
-	
+}
+
+#capaerrores{
+    background: #E6E6AA;
+    border: 1px solid red;
+    height: auto;
+    padding: 5px;
+    width: 794px;
+    color: red;
+    margin-top: 47px;
+    margin-left: 207px;
+
+}
+
 #acor{
-background-color: #FFEA86;
- border: 5px solid #D02020;
-padding: 5px;
+    background-color: #FFEA86;
+    border: 5px solid #D02020;
+    padding: 5px;
 }
 
 #dialog{    
@@ -309,9 +309,9 @@ padding: 5px;
 }
 
 #mensajerror{
-    
-        width: 250px;
-      margin-left: 848px;
+
+    width: 250px;
+    margin-left: 848px;
     color: red;
     height: 33px;
     margin-top: -28px
@@ -319,12 +319,12 @@ padding: 5px;
 }
 
 #admin{
-   float: right;
+    float: right;
     height: 39%;
     margin-left: 1154px;
     margin-top: -78px;
     width: 15%;
-    
+
 }
 
 #est{
@@ -336,30 +336,30 @@ padding: 5px;
 }
 
 #form01{
-   height: 200px;
+    height: 200px;
     left: 444px;
     position: absolute;
     top: 124px;
     width: 304px;
-   
+
 }
 
 #titulo{
-     position:absolute;
+    position:absolute;
     left:325px;
     top:53px;
     width:687px;
     height:84px;
-    
-    
-    
+
+
+
     text-align:center;
-     font-family:Arial;
-     font-size:36px;
-     font-weight:bold;
-     font-style:normal;
-     text-decoration:none;
-     color:#000000;
+    font-family:Arial;
+    font-size:36px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    color:#000000;
 }
 #usuario {
     top: 10px;
@@ -372,16 +372,16 @@ padding: 5px;
     color:#333333;
 }
 #passw{
-  text-align:left;
-  font-family:Arial;
-  font-size:16px;
-  font-weight:bold;
-  font-style:normal;
-  text-decoration:none;
-  color:#333333;
+    text-align:left;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    color:#333333;
 }
 #botone {
-    
+
     position:absolute;
     left:647px;
     top:444px;
@@ -396,12 +396,12 @@ padding: 5px;
     font-style:normal;
     font-weight:normal;
     text-decoration:none;
-    
+
 }
 #campo1{
     position:absolute;
-     top:0px;
-     left: 100px;
+    top:0px;
+    left: 100px;
     width:193px;
     height:20px;
     ;
@@ -413,7 +413,7 @@ padding: 5px;
     font-style:normal;
     font-weight:normal;
     text-decoration:none;
-    
+
 }
 
 #campo2{
@@ -431,7 +431,7 @@ padding: 5px;
     font-style:normal;
     font-weight:normal;
     text-decoration:none;
-    
+
 }
 
 #olvipass{
@@ -439,34 +439,34 @@ padding: 5px;
 }
 
 #menuadmin{
-    
-        
+
+
 }
 
 .formgeneral{
-  
+
 }
 
 #marcos{
-    
-   height: 245px;
+
+    height: 245px;
     margin-left: 209px;
     margin-top: 49px;
     width: 780px;
-      
+
 }
 #prifila{
-    
-   width: 211px;  
+
+    width: 211px;  
 }
 #segfila{
-   
+
     margin-left: 270px;
     margin-top: -166px;
     width: 211px;
 }
 #terfila{
-   
+
     margin-left: 546px;
     margin-top: -222px;
     width: 211px;
@@ -474,14 +474,24 @@ padding: 5px;
 
 #logoportal{
     float: left;
-width: 285px;
-margin-left: 10px;
-margin-top: -86px;
-  
+    width: 285px;
+    margin-left: 10px;
+    margin-top: -86px;
+
 }
 #logounac{
     float: right;
-  width: 100px;  
-  left: 500px;
-  background: red;
+    width: 100px;  
+    left: 500px;
+    background: red;
+}
+#letrass{
+font-size: 18px;
+    position: absolute;
+    width: 350px;
+    height: 100px;
+    left: 420px;
+    top: 90px;
+
+
 }
