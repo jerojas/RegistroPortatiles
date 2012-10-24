@@ -3,7 +3,20 @@
     Created on : 15/10/2012, 04:32:20 PM
     Author     : JEOVANY
 --%>
+<%
 
+        String nombre = request.getParameter("correoo");
+    Integer guardo = (Integer) request.getAttribute("guardoOK");
+    String mensaje = "";
+    String mensaje2 = "";
+    String accion = "insertar";//la acción será un nuevo registro 
+    
+    if (guardo != null) {
+        mensaje2 = "Regitro ingresado exitosamente";
+    }
+    
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -55,7 +68,7 @@
             </div>
 
 
-            <form name="reg"  id="reg" method="POST"> 
+                <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
 
                 <fieldset id="marcos">
                     <legend><strong>Registrar Usuario </strong></legend>
@@ -120,14 +133,16 @@
                 </ul>
                     <div id="aster">(*) Campos Obligatorios</div>
                 <div class="btn">
-                    <input type="button" id = "validar" name="validar" value="REGISTRARSE"/>
+                    <input type="submit" id = "validar" name="validar" value="REGISTRARSE"/>
                     <br>
-                    <br>                        
+                    <br> 
+                      <b><font color="RED"><%=mensaje2%></font></b>
 
                 </div>
             </div>
                     
         </fieldset> 
+                 <input type="hidden" name="accion" value="<%=accion%>" />
     </form>
 
 

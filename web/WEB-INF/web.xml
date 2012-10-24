@@ -5,24 +5,24 @@
         <servlet-class>Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControlarUsuarios</servlet-name>
-        <servlet-class>ControlarUsuarios</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ControlarPortatiles</servlet-name>
         <servlet-class>ControlarPortatiles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlarUsuarios</servlet-name>
+        <servlet-class>ControlarUsuarios</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControlarUsuarios</servlet-name>
-        <url-pattern>/ControlarUsuarios</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ControlarPortatiles</servlet-name>
         <url-pattern>/ControlarPortatiles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlarUsuarios</servlet-name>
+        <url-pattern>/ControlarUsuarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
