@@ -14,6 +14,7 @@
         <link type="text/css" href="css/Botones.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
+            <script src = "js/jMenu.jquery.js"></script>
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css"/> 
 
@@ -23,38 +24,39 @@
         <div class="header"id ="header"> 
             <img src="imagenes/header.png" />
             <div id="logo" >
-               <img src="imagenes/logo.jpg" width="282px" height="91px"  /> 
+                <img src="imagenes/logo.jpg" width="282px" height="91px"  /> 
             </div>
             <div id="titulo">
-              Sistema de Registro de Portátiles 
-              Bolívar Rave
-              </div>
+                Sistema de Registro de Portátiles 
+                Bolívar Rave
+            </div>
         </div>
-        <div class="cuerpo" id="content"> 
 
-            <div id="content" >
-                
-                <div  id="letrass" align="CENTER" >         
-                    <label><span>INGRESE EL CODIGO DEL COMPUTADOR </span><br>   </label>
-                      <br>
+        <div class="cuerpo" id="content"> 
+          
+                <div id="content" >
+  <form id="form" name="form"  action="Validar" method="post"  >
+                    <div  id="letrass" align="CENTER" >         
+                        <label><span>INGRESE EL CODIGO DEL COMPUTADOR </span><br>   </label>
+                        <br>
                         <input name="Codigo" class="Codigo" type="text" id="Codigo" value="" >
                         <br>
-                         <br>
-                        <input name="Ingresar" value="Ingresar" type="reset" id="Ingresar" class="button large green"  > 
-                         
+                        <br>
+                        <input   value="Ingresar" type="reset" id="Ingresar" class="button large blue"  > 
+
+                    </div>
+            </form>
+
                 </div>
-
-            </div>
-
         </div>
         <div id="finalpaginalogin">
             <br>
-         CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
-          Medellin - Colombia <br>
-         JEOVANY ROJAS MEDINA <br>
-          SERGIO MOSQUERA <br>
-          AÑO 2012 
-                   
+            CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
+            Medellin - Colombia <br>
+            JEOVANY ROJAS MEDINA <br>
+            SERGIO MOSQUERA <br>
+            AÑO 2012 
+
         </div>
 
     </body>

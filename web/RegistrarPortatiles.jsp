@@ -13,6 +13,7 @@
         <link type="text/css" href="css/estiloregistrarportatil.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
+             <link type="text/css" href="css/Botones.css" rel="stylesheet" />
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css"/> 
         <link rel="stylesheet" type="text/css" href="css/view.css" media="all">
@@ -62,31 +63,31 @@
                     <div class="principal">
                         <ul >
                             <div id="prifila">
-                            <li id="li_1" >
-                                <label class="description" for="element_1">Código </label>
-                                <div>
-                                    <input id="cod" name="cod" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>	
-                            <li id="li_8" >
-                                <label class="description" for="element_8">Nombre: </label>
-                                <div>
-                                    <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>		<li id="li_9" >
-                                <label class="description" for="element_9">Apellidos: </label>
-                                <div>
-                                    <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>
-                            
+                                <li id="li_1" >
+                                    <label class="description" for="element_1">Código </label>
+                                    <div>
+                                        <input id="cod" name="cod" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>	
+                                <li id="li_8" >
+                                    <label class="description" for="element_8">Nombre: </label>
+                                    <div>
+                                        <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>		<li id="li_9" >
+                                    <label class="description" for="element_9">Apellidos: </label>
+                                    <div>
+                                        <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
+
                                 <li id="li_2" >
                                     <label class="description" for="element_2">Documento: </label>
                                     <div>
                                         <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
                                 </li>
-                                </div>
+                            </div>
                             <div id="segfila">
                                 <li id="li_4" >
                                     <label class="description" for="element_4">Email: </label>
@@ -94,122 +95,118 @@
                                         <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
                                 </li>
-                                 <li id="li_7" >
-                            <label class="description" for="element_7">Teléfono: </label>
-                            <div>
-                                <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value=""/> 
-                            </div> 
-                        </li>
-                                		<li id="li_3" >
-                            <label class="description" for="element_3">Carrera: </label>
-                            <div>
-                                <input id="carrera" name="carrera" class="element text medium" type="text" maxlength="255" value=""/> 
-                            </div> 
-                        </li>
+                                <li id="li_7" >
+                                    <label class="description" for="element_7">Teléfono: </label>
+                                    <div>
+                                        <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
+                                <li id="li_3" >
+                                    <label class="description" for="element_3">Carrera: </label>
+                                    <div>
+                                        <input id="carrera" name="carrera" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
 
                                 <li id="li_10" >
-                            <label class="description" for="element_10">Semestre: </label>
-                            <div>
-                                <select class="element select medium" id="semestre" name="semestre"> 
-                                   
-                                    <option value="1" >Seleccione el semestre</option>
-                                    <option value="2" >1</option>
-                                    <option value="3" >2</option>
-                                    <option value="4" >3</option>
-                                    <option value="5" >4</option>
-                                    <option value="6" >5</option>
-                                    <option value="7" >6</option>
-                                    <option value="8" >7</option>
-                                    <option value="9" >8</option>
-                                    <option value="10" >9</option>
-                                    <option value="11" >10</option>
-                                    <option value="12" >11</option>
+                                    <label class="description" for="element_10">Semestre: </label>
+                                    <div>
+                                        <select class="element select medium" id="semestre" name="semestre"> 
 
-                                </select>
-                            </div> 
-                        </li>
+                                            <option value="1" >Seleccione el semestre</option>
+                                            <option value="2" >1</option>
+                                            <option value="3" >2</option>
+                                            <option value="4" >3</option>
+                                            <option value="5" >4</option>
+                                            <option value="6" >5</option>
+                                            <option value="7" >6</option>
+                                            <option value="8" >7</option>
+                                            <option value="9" >8</option>
+                                            <option value="10" >9</option>
+                                            <option value="11" >10</option>
+                                            <option value="12" >11</option>
+
+                                        </select>
+                                    </div> 
+                                </li>
                             </div>
-                            
+
                             <div id="terfila">
                                 <li id="li_8" >
-                                <label class="description" for="element_8">Mac: </label>
-                                <div>
-                                    <input id="mac" name="mac" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>
-                            
-                           	<li id="li_7" >
-                            <label class="description" for="element_7">Marca del Portátil: </label>
-                            <div>
-                                <input id="pc" name="pc" class="element text medium" type="text" maxlength="255" value=""/> 
-                            </div> 
-                        </li>
-                        <li id="li_7" >
-                            <label class="description" for="element_7">Color: </label>
-                            <div>
-                                <input id="color" name="color" class="element text medium" type="text" maxlength="255" value=""/> 
-                            </div> 
-                        </li>
+                                    <label class="description" for="element_8">Mac: </label>
+                                    <div>
+                                        <input id="mac" name="mac" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
 
+                                <li id="li_7" >
+                                    <label class="description" for="element_7">Marca del Portátil: </label>
+                                    <div>
+                                        <input id="pc" name="pc" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
+                                <li id="li_7" >
+                                    <label class="description" for="element_7">Color: </label>
+                                    <div>
+                                        <input id="color" name="color" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
+
+                            </div>
+                        </ul>
+
+                        <div class="btn">
+                            <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRARSE"/>
+                            <br>
+                            <br>                        
+
+                        </div>
                     </div>
-                </ul>
-
-                <div class="btn">
-                    <input type="button" id = "validar" name="validar" value="REGISTRARSE"/>
-                    <br>
-                    <br>                        
-
+                </fieldset> 
+            </form>
+            <div class = "ale" id = "capaerrores"  style="display: none;" >
+                Información mal ingresada por favor corrija lo siguiente:
+                <br>
+                <div class= "alerta" id="errorcodigo" >
+                </div>
+                <div class= "alerta" id="errornombre" >
+                </div>
+                <div class= "alerta" id="errorape">
+                </div>
+                <div class= "alerta" id="errordoc">
+                </div>
+                <div class= "alerta"  id="errorcorreoo">
+                </div>
+                <div class= "alerta" id="errorvalcorreoo">
+                </div>
+                <div class= "alerta" id="errorpasswor">
+                </div>
+                <div class= "alerta" id="errorrepitapassword">
+                </div>
+                <div class= "alerta" id="errorcarrera">
+                </div>
+                <div class= "alerta" id="errortel">
+                </div>
+                <div class= "alerta" id="errorvalpassword">
+                </div>
+                <div class= "alerta" id="errorsemestre">
+                </div>
+                <div class= "alerta" id="errormac">
+                </div>
+                <div class= "alerta" id="errorpc">
+                </div>
+                <div class= "alerta" id="errorcolor">
                 </div>
             </div>
-        </fieldset> 
-    </form>
-
-
-    <div class = "ale" id = "capaerrores"  style="display: none;" >
-        Información mal ingresada por favor corrija lo siguiente:
-        <br>
-         <div class= "alerta" id="errorcodigo" >
         </div>
-        <div class= "alerta" id="errornombre" >
-        </div>
-        <div class= "alerta" id="errorape">
-        </div>
-        <div class= "alerta" id="errordoc">
-        </div>
-        <div class= "alerta"  id="errorcorreoo">
-        </div>
-        <div class= "alerta" id="errorvalcorreoo">
-        </div>
-        <div class= "alerta" id="errorpasswor">
-        </div>
-        <div class= "alerta" id="errorrepitapassword">
-        </div>
-        <div class= "alerta" id="errorcarrera">
-        </div>
-        <div class= "alerta" id="errortel">
-        </div>
-        <div class= "alerta" id="errorvalpassword">
-        </div>
-        <div class= "alerta" id="errorsemestre">
-        </div>
-        <div class= "alerta" id="errormac">
-        </div>
-        <div class= "alerta" id="errorpc">
-        </div>
-        <div class= "alerta" id="errorcolor">
+        <div id="finalpaginalogin">
+            <br>
+            CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
+            Medellin - Colombia <br>
+            JEOVANY ROJAS MEDINA <br>
+            SERGIO MOSQUERA <br>
+            AÑO 2012 
         </div>
 
-    </div>
-
-</div>
-<div id="finalpaginalogin">
-    <br>
-    CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
-    Medellin - Colombia <br>
-    JEOVANY ROJAS MEDINA <br>
-    SERGIO MOSQUERA <br>
-    AÑO 2012 
-</div>
-
-</body>
+    </body>
 </html>

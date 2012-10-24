@@ -486,12 +486,32 @@ h3{
     background: red;
 }
 #letrass{
-font-size: 18px;
+    font-size: 28px;
     position: absolute;
     width: 350px;
     height: 100px;
     left: 420px;
     top: 90px;
+
+
+}
+.error{ 
+    content: '';
+    border-top: 3px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-right: 8px solid darkgreen;
+    border-left: 2px solid transparent;
+}
+.error{
+    background-color: captiontext;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    width:150px;
+    left: 260px;
+    font-size: 13px;
 
 
 }

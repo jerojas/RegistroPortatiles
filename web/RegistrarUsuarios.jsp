@@ -35,6 +35,7 @@
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css"/> 
         <link rel="stylesheet" type="text/css" href="css/view.css" media="all">
+             <link type="text/css" href="css/Botones.css" rel="stylesheet" />
         <script type="text/javascript" src="js/view.js"></script>
 
         <link rel="stylesheet" href="css3menu1/style.css" type="text/css" /><style>._css3m{display:none}</style>
@@ -82,18 +83,18 @@
                         <ul >
                             <div id="prifila">
                             <li id="li_1" >
-                                <label class="description" for="element_1">Código: *</label>
+                                <label class="description" for="element_1">Código: <font color="RED">*</font></label>
                                 <div>
                                     <input id="cod" name="cod" class="element text medium" type="text" maxlength="255" value=""/> 
                                 </div> 
                             </li>	
                             <li id="li_8" >
-                                <label class="description" for="element_8">Nombre: *</label>
+                                <label class="description" for="element_8">Nombre: <font color="RED">*</font></label>
                                 <div>
                                     <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
                                 </div> 
                             </li>		<li id="li_9" >
-                                <label class="description" for="element_9">Apellidos: *</label>
+                                <label class="description" for="element_9">Apellidos: <font color="RED">*</font></label>
                                 <div>
                                     <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
                                 </div> 
@@ -102,19 +103,19 @@
                             <div id="segfila">
                                 
                                 <li id="li_4" >
-                                    <label class="description" for="element_4">Email: *</label>
+                                    <label class="description" for="element_4">Email: <font color="RED">*</font></label>
                                     <div>
                                         <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value="@"/> 
                                     </div> 
                                 </li>		<li id="li_5" >
-                                    <label class="description" for="element_5">Password: *</label>
+                                    <label class="description" for="element_5">Password: <font color="RED">*</font></label>
                                     <div>
                                         <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value=""/> 
                                     </div> 
                                 </li>	
 
                                 <li id="li_6" >
-                                    <label class="description" for="element_6">Repita Password: *</label>
+                                    <label class="description" for="element_6">Repita Password: <font color="RED">*</font></label>
                                     <div>
                                         <input id="repitapassword" name="repitapassword" class="element text medium" type="password" maxlength="255" value="" />
                                     </div>
@@ -124,7 +125,7 @@
                             <div id="terfila">
                            		
                             <li id="li_2" >
-                                    <label class="description" for="element_2">Documento: *</label>
+                                    <label class="description" for="element_2">Documento: <font color="RED">*</font></label>
                                     <div>
                                         <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
@@ -141,9 +142,9 @@
             </div>
                     
         </fieldset> 
-                    <div id="aster">(*) Campos Obligatorios</div>
+                    <div id="aster"> <b><font color="RED">(*)</font></b> Campos Obligatorios</div>
                 <div class="btn">
-                    <input type="button" id = "validar" name="validar" value="REGISTRARSE"/>
+                    <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRARSE"/>
                     <br>
                     <br> 
        <b><font color="RED"><%=mensaje2%></font></b>

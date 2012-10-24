@@ -35,7 +35,6 @@
     }
 })(jQuery,'isHovered');
 
-
 /** jMenu Plugin **/
 (function($){
 
@@ -292,4 +291,18 @@
         else
             $.jMenu._error();
     };
-})(jQuery); 
+})(jQuery);     
+
+//Jquery Ingreso
+$(document).ready(function(evento){
+    $("#Ingresar").click(function (){	 
+        $(".error").remove();
+        if( ($(".Codigo").val() == "")){
+            $(".Codigo").focus().after($("<span class='error'>El campo esta Vacio</span>").fadeIn(3000).fadeOut(3000));
+            $("#form")[0].reset();
+             
+        }
+     
+    });
+   
+});
