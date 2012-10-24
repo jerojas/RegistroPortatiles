@@ -52,7 +52,7 @@
                 Bolívar Rave
             </div>
         </div>
-        <div class="cuerporeg" id="content"> 
+        <div class="cuerporeg" id="content" align="CENTER"> 
             <div id="menuadmin">
                 <ul id="css3menu1" class="topmenu">
                     <li class="topfirst"><a href="Quienes somos.jsp" style="height:32px;line-height:32px;"><img src="css3menu1/home.png" alt=""/>Quiénes somos</a></li>

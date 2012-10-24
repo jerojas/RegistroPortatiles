@@ -33,15 +33,15 @@
                 Bolívar Rave
             </div>
         </div>
-        <div class="cuerporeg" id="content"> 
+        <div class="cuerporeg" id="content" align="CENTER"> 
             <div id="menuadmin">
                 <ul id="css3menu1" class="topmenu">
                     <li class="topfirst"><a href="Quienes somos.jsp" style="height:32px;line-height:32px;"><img src="css3menu1/home.png" alt=""/>Quiénes somos</a></li>
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><img src="css3menu1/samples.png" alt=""/>Objetivo del Portal</a></li>
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Portátiles</span></a>
                         <ul>
-                            <li><a href="#"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
-                            <li><a href="#"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
+                            <li><a href="RegistrarPortatiles.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
+                            <li><a href="EditarEliminarUser.jsp"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
                         </ul></li>
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Porteros</span></a>
                         <ul>
@@ -58,9 +58,9 @@
 
             <form name="reg"  id="reg" method="POST"> 
 
-                <fieldset id="marcos">
-                    <legend><strong>Registrar Portátil </strong></legend>
-                    <div class="principal">
+                <fieldset id="marcos" >
+                    <legend><strong>Registrar Portátil  </strong> </legend>
+                    <div class="principal" align="CENTER" >
                         <ul >
                             <div id="prifila">
                                 <li id="li_1" >
