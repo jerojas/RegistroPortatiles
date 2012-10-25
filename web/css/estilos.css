@@ -492,14 +492,25 @@ h3{
     height: 100px;
     left: 420px;
     top: 90px;
+    font-family:'Arial';
+}
 
+
+#divcentro{
+    font-family:'Arial';
+    font-size: 18px;
+    position: absolute;
+    width: 350px;
+    height: 100px;
+    left: 420px;
+    top: 150px;
 
 }
 .error{ 
     content: '';
-    border-top: 3px solid transparent;
+    border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
-    border-right: 8px solid darkgreen;
+    border-right: 8px solid #529214;
     border-left: 2px solid transparent;
 }
 .error{
@@ -512,6 +523,5 @@ h3{
     width:150px;
     left: 260px;
     font-size: 13px;
-
 
 }
