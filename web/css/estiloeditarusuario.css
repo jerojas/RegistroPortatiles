@@ -1,0 +1,476 @@
+
+body 
+{
+background-color: transparent;
+margin: 0px; padding: 0px
+
+}
+.principal{
+        height: 167px;
+    left: 13px;
+    position: relative;
+    text-align: left;
+    top: 11px;
+    width: 778px;
+}
+.formgeneral{
+   
+    background: none repeat scroll 0 0 blue;
+    height: 298px;
+    margin-left: 167px;
+    width: 355px;
+}
+.formgeneral2{
+   
+   background: none repeat scroll 0 0 blue;
+    height: 298px;
+    margin-left: 595px;
+    position: relative;
+    top: -297px;
+    width: 507px;
+}
+
+.campos{    
+   background: none repeat scroll 0 0 red;
+    margin-bottom: 30px;
+    width: 328px;
+    
+}
+
+.colum2{
+    
+    
+}
+.label{
+    border: 1px solid black;
+    margin-left: 66px;
+    margin-top: 12px;
+    width: 150px;
+    
+}
+.btn{
+    text-align: center;  
+     margin-top: 3px;
+}
+.campos select{
+    width: 210px;
+}
+.etiqueta{
+    width: 230px;
+    display: block;
+    float:left;
+    color: black;    
+    margin-left: 10px;
+    font-family: serif;
+    font-weight: bold;
+}
+.etiqueta2{
+    width: 100px;
+    display: block;
+    float:left;
+    color: black;    
+    margin-left: 10px;
+    font-family: serif;
+    font-weight: bold;
+}
+    
+.campos2{    
+    background: none repeat scroll 0 0 red;
+    height: 40px;
+    margin-bottom: 20px;
+    width: 330px;       
+}
+
+.camposs{
+    margin-bottom: 10px;
+    height: 40px; 
+}
+
+.campos2 input{    
+    position: relative;
+    top:8px;
+
+}
+
+h2{
+text-align: center; 
+}
+h3{
+background-color: #F9F355;
+ border: 5px solid #70F51D;
+}
+
+#boton{
+    background: none repeat scroll 0 0 aquamarine;
+    border-radius: 15px;
+    color: #000000;
+    font-family: 'Arial';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    height: 28px;
+    left: 193px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    width: 108px;
+
+}
+#submit{
+background: yellow;
+}
+
+.header{
+  
+    height: 60%;
+   
+    width: 89%;
+    background-color: white;
+    margin-top: 5px;
+    margin-left: 70px;
+    /*border: 10px groove whitesmoke; */
+    border-radius: 25px;
+    
+  
+}
+.cuerpo{
+
+/*border: 1px solid black;*/
+  /*  height: 450px;
+   width: 89%;
+   margin-left: 70px;
+   /*border: 10px outset #cccccc;*/
+   /*background-color: whitesmoke;
+    border-radius: 25px;*/
+    
+  background-color: #CCFFCC;
+    height: 450px;
+    left: 70px;
+    position: absolute;
+    top: 181px;
+    width: 1213px;
+    
+}
+.cuerporeg{
+
+/*border: 1px solid black;*/
+  /*  height: 450px;
+   width: 89%;
+   margin-left: 70px;
+   /*border: 10px outset #cccccc;*/
+   /*background-color: whitesmoke;
+    border-radius: 25px;*/
+    
+   background-color: #CCFFCC;
+    height: 592px;
+    left: 70px;
+    position: absolute;
+    top: 181px;
+    width: 1213px;
+    
+}
+.cuerpoindex{
+
+/*border: 1px solid black;*/
+  /*  height: 450px;
+   width: 89%;
+   margin-left: 70px;
+   /*border: 10px outset #cccccc;*/
+   /*background-color: whitesmoke;
+    border-radius: 25px;*/
+    
+  background-color: #CCFFCC;
+    height: 60%;
+    left: 70px;
+    position: absolute;
+    top: 181px;
+    width: 1213px;
+}
+
+#finalpagina{
+    
+     background: none repeat scroll 0 0 #99FFFF;
+    height: 100px;
+    left: 70px;
+    position: relative;
+    text-align: center;
+    top: 595px;
+    width: 1213px;
+     font-weight:bold;
+      font-size: 12px;
+       font-family:'Arial';
+color:       #006633;
+    
+}
+#finalpaginausuarios{
+    
+     background: none repeat scroll 0 0 #99FFFF;
+    height: 100px;
+    left: 70px;
+    position: relative;
+    text-align: center;
+    top: 517px;
+    width: 1213px;
+     font-weight:bold;
+      font-size: 12px;
+       font-family:'Arial';
+color:       #006633;
+    
+}
+
+
+.ingresar{
+
+ 
+}
+
+#logo{
+
+    float: right;
+    height: 27%;
+    position: absolute;
+    top: 81px;
+    width: 21%;
+   
+ 
+}
+#entrar{
+background: yellow;
+}
+.formulario{
+
+     background: none repeat scroll 0 0 #B7E4B4;
+    border: 1px inset whitesmoke;
+    border-radius: 30px 30px 30px 30px;
+    height: auto;
+    margin-left: 845px;
+    margin-top: 1px;
+    padding: 26px;
+    width:397px;
+
+}
+
+.formulario2{
+    background: none repeat scroll 0 0 #B7E4B4;
+    position: relative;
+    left: 30%;
+    width: 35%;     
+    margin-left: 20px;
+    margin-top: 5px;    
+    border: 1px inset whitesmoke;  
+    padding-bottom: 10px;
+    border-radius: 30px 30px 30px 30px;
+}
+
+#tabs{
+
+   bottom: -580px;
+    margin-right: 488px;
+    margin-top: -284px;
+    top: 441px;
+    height: 75%;
+     
+	}
+
+	#capaerrores{
+	background: #E6E6AA;
+border: 1px solid red;
+height: auto;
+padding: 5px;
+width: 794px;
+color: red;
+margin-top: -2px;
+margin-left: 207px;
+	 
+	}
+	
+#acor{
+background-color: #FFEA86;
+ border: 5px solid #D02020;
+padding: 5px;
+}
+
+#dialog{    
+    background-color: #f8f8d1;
+    width: 500px;
+}
+
+#ok{
+    color: red;        
+    font-family: monospace;
+}
+
+.active {    
+    border-color: red;
+    color: black;
+    background-color: #f8f8d1;
+}
+
+#mensajerror{
+    
+        width: 250px;
+      margin-left: 848px;
+    color: red;
+    height: 33px;
+    margin-top: -28px
+
+}
+
+#admin{
+   float: right;
+    height: 39%;
+    margin-left: 1154px;
+    margin-top: -78px;
+    width: 15%;
+    
+}
+
+#est{
+    float: right;
+    height: 39%;
+    margin-left: 1154px;
+    margin-top: -78px;
+    width: 15%;
+}
+
+#form01{
+   height: 200px;
+    left: 444px;
+    position: absolute;
+    top: 124px;
+    width: 304px;
+   
+}
+
+#titulo{
+     position:absolute;
+    left:325px;
+    top:53px;
+    width:687px;
+    height:84px;
+    
+    
+    
+    text-align:center;
+     font-family:Arial;
+     font-size:36px;
+     font-weight:bold;
+     font-style:normal;
+     text-decoration:none;
+     color:#000000;
+}
+#usuario {
+    top: 10px;
+    text-align:left;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    color:#333333;
+}
+#passw{
+  text-align:left;
+  font-family:Arial;
+  font-size:16px;
+  font-weight:bold;
+  font-style:normal;
+  text-decoration:none;
+  color:#333333;
+}
+#botone {
+    
+    position:absolute;
+    left:647px;
+    top:444px;
+    width:108px;
+    height:28px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+#campo1{
+    position:absolute;
+     top:0px;
+     left: 100px;
+    width:193px;
+    height:20px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+#campo2{
+    position:absolute;
+    top:37px;
+    left: 100px;
+    width:193px;
+    height:20px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+#olvipass{
+    text-align: center;
+}
+
+#menuadmin{
+    
+        
+}
+
+.formgeneral{
+  
+}
+
+#marcos{
+    
+  height: 192px;
+    margin-left: 209px;
+    margin-top: 49px;
+    width: 780px;
+      
+}
+#prifila{
+    
+   width: 211px;  
+}
+#segfila{
+   
+    margin-left: 270px;
+   margin-top: -166px;
+    width: 211px;
+}
+#terfila{
+   
+    margin-left: 546px;
+   margin-top: -165px;
+    width: 211px;
+}
+
+#aster{
+    text-align: center;
+margin-top: 7px;
+}

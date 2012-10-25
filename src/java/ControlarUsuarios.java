@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ControlarUsuarios", urlPatterns = {"/ControlarUsuarios"})
 public class ControlarUsuarios extends HttpServlet {
-   
 
     /**
      * Processes requests for both HTTP
@@ -33,6 +32,7 @@ public class ControlarUsuarios extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     utilidades.Conexion conBD = null;//objeto conexión
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,20 +40,14 @@ public class ControlarUsuarios extends HttpServlet {
         //registrar nuevo usuario en el portal
         if (accion.equals("insertar")) {
             insertar(request, response);
-        }else if (accion.equals("listar")) {
+        } else if (accion.equals("listar")) {
             //ver todos los usuarios del portal
             todos(request, response);
-        }  else if (accion.equals("eliminar")) {
+        } else if (accion.equals("eliminar")) {
             //eliminar un usuario
             eliminar(request, response);
-        } 
-        
-        
-        
-        
-        
-        
-    }
+        }
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -97,77 +91,58 @@ public class ControlarUsuarios extends HttpServlet {
     }// </editor-fold>
 
     private void insertar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String cod = request.getParameter("cod");
-       String nombre = request.getParameter("nombre");
+        
+         String doc = request.getParameter("doc");
+        String nombre = request.getParameter("nombre");
         String ape = request.getParameter("ape");
         String email = request.getParameter("correoo");
         String pass = request.getParameter("passwor");
-        String doc = request.getParameter("doc");
-        String tel = request.getParameter("tel");
+       String tel = request.getParameter("tel");
+        String genero = request.getParameter("genero");
         String perfil = "2"; //visitante
-         String estado = "0"; //visitante
-        
+        String estado = "0"; //visitante
+
         RequestDispatcher vista;
-        
-        //Datos de la conexion
-        String driver = "com.mysql.jdbc.Driver";
-        String urlDB = "jdbc:mysql://localhost/registroportatiles";
-        String userBD = "RegPortatiles";
-        String passBD = "toor11";
-        
+
         //Objetos para manipular la conexion y los datos
         Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
-         Statement sentencia2 = null;
         int resultado = 0;//resultado de las inserción sql
-        ResultSet  resultado2 = null;//resultado de las inserción sql2
+        ResultSet resultado2 = null;//resultado de las inserción sql2
         String sql = "";
         String sql2 = "";
-
         try {
             //CARGAR DRIVER
-            Class.forName(driver);
-
+//            Class.forName(driver);
             //ESTABLECER CONEXION
-            con = DriverManager.getConnection(urlDB, userBD, passBD);
+            con = conBD.getCConexion();
             System.out.println("Conectado ...");
-            
-            
             //Definición de Sentencia SQL
-            sql = "SELECT cod FROM usuarios WHERE cod = '" + cod + "'";
-
+            sql = "SELECT documento FROM usuarios WHERE documento = " + doc + "";
+            
             sentencia = con.createStatement();
-
+            
             resultado2 = sentencia.executeQuery(sql);
-
+            
             if (resultado2.next()) {
-
-                request.setAttribute("cod", resultado2.getString("cod"));
-
+                request.setAttribute("doc", resultado2.getString("doc"));
                 vista = request.getRequestDispatcher("RegistrarUsuarios.jsp");
                 vista.forward(request, response);
-                
-            } else{
-            
-            //Definición de Sentencia SQL
-            
-            sql = "INSERT INTO usuarios(cod,nombres,apellidos,documento,correo,clave,perfil,"
-                    + "telefono,estado) VALUES ("+cod+",'"+nombre+"','"+ape+"',"+doc
-                    +",'"+email+"','"+pass+"',"+perfil+",'"+tel+"',"+estado+")";      
-                 
-            sentencia = con.createStatement();
-            resultado = sentencia.executeUpdate(sql);
-            System.out.println(resultado);//numero de filas afectadas
-            request.setAttribute("guardoOK", resultado);
-            
-           vista = request.getRequestDispatcher("RegistrarUsuarios.jsp");
-           vista.forward(request, response);
+
+            } else {
+
+                //Definición de Sentencia SQL
+                sql = "INSERT INTO usuarios(documento,nombres,apellidos,correo,clave,genero,telefono,"
+                        + "perfil,estado) VALUES ("+doc+",'"+nombre+"','"+ ape+"','"+email
+                        +"','"+pass+"',"+genero+",'"+tel+"',"+perfil+","+estado+")";
+
+                sentencia = con.createStatement();
+                resultado = sentencia.executeUpdate(sql);
+                System.out.println(resultado);//numero de filas afectadas
+                request.setAttribute("guardoOK", resultado);
+                vista = request.getRequestDispatcher("RegistrarUsuarios.jsp");
+                vista.forward(request, response);
             }
-           
-        } catch (ClassNotFoundException ex) {
-            System.out.println("No se ha podido cargar el Driver de MySQL");
-            
-            response.sendRedirect("Error.jsp");
         } catch (SQLException ex) {
             System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
             request.getRequestDispatcher("Error.jsp").forward(request, response);
@@ -184,33 +159,19 @@ public class ControlarUsuarios extends HttpServlet {
             } catch (SQLException ex) {
                 request.getRequestDispatcher("Error.jsp").include(request, response);
             }
-        } 
-        
-        
+        }
+
     }
 
     private void todos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
-      RequestDispatcher vista;
-        
-        //Datos de la conexion
-        String driver = "com.mysql.jdbc.Driver";
-        String urlDB = "jdbc:mysql://localhost/registroportatiles";
-        String userBD = "RegPortatiles";
-        String passBD = "toor11";
-        
         //Objetos para manipular la conexion y los datos
         Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
-        ResultSet  resultado = null;//resultado de las inserción sql2
+        ResultSet resultado = null;//resultado de las inserción sql2
         String sql = "";
-       
-         try {
-            //CARGAR DRIVER
-            Class.forName(driver);
-
+        try {
             //ESTABLECER CONEXION
-            con = DriverManager.getConnection(urlDB, userBD, passBD);
+            con = conBD.getCConexion();
             System.out.println("Conectado ...");
 
             //Definición de Sentencia SQL
@@ -225,8 +186,8 @@ public class ControlarUsuarios extends HttpServlet {
             while (resultado.next()) //si el resultado tiene datos empezar a guardarlos.
             {
                 Usuario e = new Usuario(resultado.getInt(1), resultado.getString(2),
-                        resultado.getString(3), resultado.getString(4), resultado.getString(5), resultado.getString(6),
-                        resultado.getInt(7), resultado.getString(8), resultado.getInt(9));
+                        resultado.getString(3), resultado.getString(4), resultado.getString(5), resultado.getInt(6),
+                        resultado.getString(7), resultado.getInt(8), resultado.getInt(9));
                 //Agregamos el estudiante al arrelo
                 Usuarios.add(e);
             }
@@ -235,81 +196,69 @@ public class ControlarUsuarios extends HttpServlet {
             //redirigir la solicitud a la página JSP
             request.getRequestDispatcher("/EditarEliminarUser.jsp").include(request, response);
             //cerrar la conexion
-            con.close();
-        } catch (ClassNotFoundException ex) {
-            System.out.println("No se ha podido cargar el Driver de MySql");
-            //request.getRequestDispatcher("/Error.jsp").include(request, response);
-            //request.getRequestDispatcher("/Error.jsp").forward(request, response);
-            response.sendRedirect("Error.jsp");
         } catch (SQLException ex) {
             System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
             request.getRequestDispatcher("/Error.jsp").forward(request, response);
         }
-        
-        
-        
-        
-        
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      RequestDispatcher vista;
-        
-        //Datos de la conexion
-        String driver = "com.mysql.jdbc.Driver";
-        String urlDB = "jdbc:mysql://localhost/registroportatiles";
-        String userBD = "RegPortatiles";
-        String passBD = "toor11";
         
         //Objetos para manipular la conexion y los datos
         Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
-        int  resultado = 0;//resultado de las inserción sql2
+        int resultado = 0;//resultado de las inserción sql2
         String sql = "";
-        
-        try {
-            //CARGAR DRIVER
-            Class.forName(driver);
 
-            //ESTABLECER CONEXION
-            con = DriverManager.getConnection(urlDB, userBD, passBD);
+        try {
+             //ESTABLECER CONEXION
+        
+            con = conBD.getCConexion();
             System.out.println("Conectado ...");
 
             //OBTENER EL DATO A ELIMINAR
             String cod = request.getParameter("IDs");
             String perfil = request.getParameter("perfil");
-            
-            if ("1".equals(perfil)){
-                
-               System.out.println("Administrador no se puede Borrar !");
-            request.setAttribute("mensaje", "Imposible borrar Administrador !");
-            
-            }else{
-                
-           //Definición de Sentencia SQL
-            sql = "DELETE FROM USUARIOS WHERE cod ="+cod+"";
 
-            //Ejecutar sentencia
-            sentencia = con.createStatement();
-            resultado = sentencia.executeUpdate(sql);
-            System.out.println("Borrado exitoso !");
-            request.setAttribute("mensaje", "Registro borrado exitosamente !");
+            if ("1".equals(perfil)) {
+
+                System.out.println("Administrador no se puede Borrar !");
+                request.setAttribute("mensaje", "Imposible borrar Administrador !");
+
+            } else {
+
+                //Definición de Sentencia SQL
+                sql = "DELETE FROM USUARIOS WHERE cod =" + cod + "";
+
+                //Ejecutar sentencia
+                sentencia = con.createStatement();
+                resultado = sentencia.executeUpdate(sql);
+                System.out.println("Borrado exitoso !");
+                request.setAttribute("mensaje", "Registro borrado exitosamente !");
             }
-            //cerrar la conexion
-            con.close();
-
             //listar de nuevo los datos
             todos(request, response);
 
-        } catch (ClassNotFoundException ex) {
-            System.out.println("No se ha podido cargar el Driver de MySql");
-            //request.getRequestDispatcher("/Error.jsp").forward(request, response);
-            response.sendRedirect("Error.jsp");
-        } catch (SQLException ex) {
+        }catch (SQLException ex) {
             System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
             request.getRequestDispatcher("/Error.jsp").forward(request, response);
         }
-        
-        
+}
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        conBD = new utilidades.Conexion();
+        conBD.crearConexion();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        try {
+            conBD.cerrarConexion();
+        } catch (SQLException ex) {
+            System.out.println("Error cerrando conexión... " + ex);
+        }
     }
 }

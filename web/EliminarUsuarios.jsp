@@ -29,7 +29,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Usuarios</title>
-        <link type="text/css" href="css/estiloregistrarusuario.css" rel="stylesheet" />
+        <link type="text/css" href="css/estiloreliminarusuario.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
@@ -71,30 +71,49 @@
                         <ul>
                             <li><a href="#"><img src="css3menu1/256sub13.png" alt=""/>Generar Reporte </a></li>
                         </ul></li>
-                </ul><p class="_css3m"><a href="http://css3menu.com/">CSS Horizontal Drop Down Menu Css3Menu.com</a></p>
+                
             </div>
 
 
                 <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
-
+                            <div id="cajabuscar" >
+                                <div>
+                                <br>
+                                <br>
+                                <label class="busqueda" for="element_1">Digite el Documento a eliminar:</label>
+                                <br>
+                                <br>
+                                </div>
+                                <div>
+                                <input id="doc" name="doc" class="camp" type="text" maxlength="255" value=""/> 
+                                </div>
+                            </div>
+                    <div id="btnbuscar">
+                        <br>
+                         <input type="button" class="buscar" id = "buscar" name="buscar"  value="BUSCAR"/> 
+                    </div>
+                    
+                              
                 <fieldset id="marcos">
-                    <legend><strong>Registrar Usuario </strong></legend>
+                    <legend><strong>Eliminar Usuario </strong></legend>
                     <div class="principal">
                         <ul >
+                                                      
                             <div id="prifila">
+                                  
                             <li id="li_1" >
-                                <label class="description" for="element_1">Documento: <font color="RED">*</font></label>
+                                <label class="description" for="element_1">Documento:</label>
                                 <div>
                                     <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value=""/> 
                                 </div> 
                             </li>	
                             <li id="li_8" >
-                                <label class="description" for="element_8">Nombre: <font color="RED">*</font></label>
+                                <label class="description" for="element_8">Nombre: </label>
                                 <div>
                                     <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
                                 </div> 
                             </li>		<li id="li_9" >
-                                <label class="description" for="element_9">Apellidos: <font color="RED">*</font></label>
+                                <label class="description" for="element_9">Apellidos: </label>
                                 <div>
                                     <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
                                 </div> 
@@ -103,19 +122,19 @@
                             <div id="segfila">
                                 
                                 <li id="li_4" >
-                                    <label class="description" for="element_4">Email: <font color="RED">*</font></label>
+                                    <label class="description" for="element_4">Email: </label>
                                     <div>
                                         <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
                                 </li>		<li id="li_5" >
-                                    <label class="description" for="element_5">Password: <font color="RED">*</font></label>
+                                    <label class="description" for="element_5">Password: </label>
                                     <div>
                                         <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value=""/> 
                                     </div> 
                                 </li>	
 
                                 <li id="li_6" >
-                                    <label class="description" for="element_6">Repita Password: <font color="RED">*</font></label>
+                                    <label class="description" for="element_6">Repita Password:</label>
                                     <div>
                                         <input id="repitapassword" name="repitapassword" class="element text medium" type="password" maxlength="255" value="" />
                                     </div>
@@ -125,7 +144,7 @@
                             <div id="terfila">
                            		
                             <li id="li_2" >
-                                    <label class="description" for="element_2">Género: <font color="RED">*</font></label>
+                                    <label class="description" for="element_2">Género: </label>
                                     <div>
                                        
                                          <select  name="genero" size = 1 id = "genero" class="element text medium" >
@@ -147,9 +166,9 @@
             </div>
                     
         </fieldset> 
-                    <div id="aster"> <b><font color="RED">(*)</font></b> Campos Obligatorios</div>
+                    
                 <div class="btn">
-                    <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRARSE"/>
+                    <input type="button" class="button medium blue" id = "validar" name="validar" value="ELIMINAR"/>
                     <br>
                     <br> 
        <b><font color="RED"><%=mensaje2%></font></b>
@@ -159,36 +178,6 @@
                  <input type="hidden" name="accion" value="<%=accion%>" />
     </form>
 
-
-    <div class = "ale" id = "capaerrores"  style="display: none;" >
-        Información mal ingresada por favor corrija lo siguiente:
-        <br>
-         <div class= "alerta" id="errorcodigo" >
-        </div>
-        <div class= "alerta" id="errornombre" >
-        </div>
-        <div class= "alerta" id="errorape">
-        </div>
-        <div class= "alerta"  id="errorcorreoo">
-        </div>
-        <div class= "alerta" id="errorvalcorreoo">
-        </div>
-        <div class= "alerta" id="errorpasswor">
-        </div>
-        <div class= "alerta" id="errorrepitapassword">
-        </div>
-        <div class= "alerta" id="errorcarrera">
-        </div>
-        <div class= "alerta" id="errortel">
-        </div>
-        <div class= "alerta" id="errorvalpassword">
-        </div>
-        <div class= "alerta" id="errordoc">
-        </div>
-        
-
-    </div>
-    
 
 </div>
 <div id="finalpaginausuarios">

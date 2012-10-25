@@ -46,15 +46,16 @@
             <caption>Usuarios Registrados</caption>
             <thead>
                 <tr>
-                    <th scope="col">Código</th>
+                    <th scope="col">Documento</th>
                     <th scope="col">Nombres</th>
                     <th scope="col">Apellidos</th>
-                    <th scope="col">Documento</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Clave</th>
+                     <th scope="col">Género</th>
+                     <th scope="col">Teléfono</th>
+                     <th scope="col">Estado</th>
                     <th scope="col">Perfil</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Estado</th>
+                    
                 </tr>
             </thead>
             <%
@@ -72,7 +73,7 @@
                 <tr class="odd">                               
                     <%}%>
                     <td>
-                        <%= u.getCod()%>
+                        <%= u.getDoc()%>
                     </td>
                     <td>
                         <%= u.getNombres()%>
@@ -80,29 +81,30 @@
                     <td>
                         <%= u.getApellidos()%>
                     </td>
-                    <td>
-                        <%= u.getDocumento()%>
-                    </td>
-                    <td>
+                     <td>
                         <%= u.getCorreo()%>
                     </td>
                     <td>
                         <%= u.getClave()%>
                     </td>
                     <td>
+                        <%= u.getGenero()%>
+                    </td>
+                    <td>
                         <%= u.getTelefono()%>
+                    </td>
+                     <td>
+                        <%= u.getEstado()%>
                     </td>
                     <td>
                         <%= u.getIdperfil()%>
                     </td>
+                   
                     <td>
-                        <%= u.getEstado()%>
+                        <a href="ControlarUsuarios?accion=eliminar&IDs=<%=u.getDoc()%> &perfil=<%=u.getIdperfil()%>">Eliminar</a>
                     </td>
                     <td>
-                        <a href="ControlarUsuarios?accion=eliminar&IDs=<%=u.getCod()%> &perfil=<%=u.getIdperfil()%>">Eliminar</a>
-                    </td>
-                    <td>
-                        <a href="ControlarUsuarios?accion=editar&ID=<%=u.getCod()%>">Editar</a>
+                        <a href="ControlarUsuarios?accion=editar&ID=<%=u.getDoc()%>">Editar</a>
                     </td>
                 </tr>
             </tbody>
@@ -117,7 +119,6 @@
             <%=mensaje%>
         </p>
         <hr>
-
 
 
         </div>

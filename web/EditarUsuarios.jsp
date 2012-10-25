@@ -29,7 +29,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Usuarios</title>
-        <link type="text/css" href="css/estiloregistrarusuario.css" rel="stylesheet" />
+        <link type="text/css" href="css/estiloeditarusuario.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
