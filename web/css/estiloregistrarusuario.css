@@ -280,7 +280,8 @@ padding: 5px;
 width: 794px;
 color: red;
 margin-top: -2px;
-margin-left: 207px;
+
+text-align: center;
 	 
 	}
 	
@@ -448,9 +449,9 @@ padding: 5px;
 #marcos{
     
   height: 192px;
-    margin-left: 209px;
-    margin-top: 49px;
-    width: 780px;
+margin-top: 49px;
+width: 780px;
+text-align: center;
       
 }
 #prifila{

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>REGISTRO DE PORTATILES</title>
+        <title>HOME</title>
         <link type="text/css" href="css/estilos.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
@@ -36,20 +36,17 @@
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><img src="css3menu1/samples.png" alt=""/>Objetivo del Portal</a></li>
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Portátiles</span></a>
                         <ul>
-                            <li><a href="#"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
+                            <li><a href="RegistrarPortatiles.jsp"href="#"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
                             <li><a href="#"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
                         </ul></li>
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Usuarios</span></a>
                         <ul>
                             <li><a href="RegistrarUsuarios.jsp" href="#"><img src="css3menu1/256sub1.png" alt=""/>Registrar Usuarios</a></li>
-                            <li><a href="ControlarUsuarios?accion=listar" href="#"><img src="css3menu1/256sub2.png" alt=""/>Editar y Eliminar Usuarios</a></li>
+                            <li><a href="EliminarUsuarios.jsp" href="ControlarUsuarios?accion=listar" href="#"><img src="css3menu1/256sub2.png" alt=""/>Editar y Eliminar Usuarios</a></li>
                         </ul></li>
                     <li class="toplast"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/256sub12.png" alt=""/>Reportes</span></a>
-                        <ul>
-                            <li><a href="#"><img src="css3menu1/256sub13.png" alt=""/>Generar Reporte </a></li>
-                        </ul></li>
-                </ul><p class="_css3m"><a href="http://css3menu.com/">CSS Horizontal Drop Down Menu Css3Menu.com</a></p>
-            </div>
+                        </li>
+                         </div>
 
 
         </div>

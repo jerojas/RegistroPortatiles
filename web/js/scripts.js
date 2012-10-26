@@ -147,7 +147,26 @@ $(document).ready(function(){
             $("#errorsemestre").css("display","block");
             resultado_ok=false;		
         }
-        if($("#mac").val() == "") { 
+             
+                 
+        if (resultado_ok==true) {
+        $("#capaerrores").css("display","none");     
+        $("#registrarpc").css("display","block"); 
+         $("#reg").submit();
+        }	
+
+    }); 
+    
+    //VALIDAR LOS CAMPOS DE REGISTRO DE PORTATILES
+    
+      $("#guardar").click(function(){
+          
+        $(".alerta").css("display","none"); 
+        $("#capaerrores").css("display","none");
+        
+        var resultado_ok=true; 
+        
+ if($("#mac").val() == "") { 
             $("#errormac").html("* No ha ingresado la MAC del Portátil"); 
             $("#mac").addClass("active");
             $("#errormac").fadeIn();
@@ -171,15 +190,15 @@ $(document).ready(function(){
             $("#errorcolor").css("display","block");
             resultado_ok=false;		
         }
-
-       
-                 
+        
         if (resultado_ok==true) {
-	$("#capaerrores").css("display","none"); 
-         $("#reg").submit();
-        }	
-
-    }); 
+        $("#capaerrores").css("display","none");     
+        $("#registrarpc").css("display","none"); 
+         $("#guardar").submit();
+        }
+          
+      
+     }); 
 
     //ingresar solo numeros en el telefono
     $("#tel").keypress(function(e) { 

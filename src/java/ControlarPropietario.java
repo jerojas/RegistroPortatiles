@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
@@ -19,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author JEOVANY
  */
-@WebServlet(name = "ControlarPortatiles", urlPatterns = {"/ControlarPortatiles"})
-public class ControlarPortatiles extends HttpServlet {
+@WebServlet(name = "ControlarPropietario", urlPatterns = {"/ControlarPropietario"})
+public class ControlarPropietario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -151,7 +146,7 @@ public class ControlarPortatiles extends HttpServlet {
                 resultado = sentencia.executeUpdate(sql);
                 System.out.println(resultado);//numero de filas afectadas
                 request.setAttribute("guardoOK", resultado);
-                vista = request.getRequestDispatcher("RegistrarPortatiles.jsp");
+                vista = request.getRequestDispatcher("RegistrarPropietarios.jsp");
                 vista.forward(request, response);
             
         } catch (SQLException ex) {

@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 
+import Entidades.Perfil;
 import Entidades.Usuario;
 import java.io.IOException;
 import java.sql.*;
@@ -46,6 +47,10 @@ public class ControlarUsuarios extends HttpServlet {
         } else if (accion.equals("eliminar")) {
             //eliminar un usuario
             eliminar(request, response);
+        }else if (accion.equals("buscar")){
+            buscar_eliminar(request, response);
+        }else if (accion.equals("eliminarr")){
+            eliminaruno(request, response);
         }
 }
 
@@ -260,5 +265,116 @@ public class ControlarUsuarios extends HttpServlet {
         } catch (SQLException ex) {
             System.out.println("Error cerrando conexión... " + ex);
         }
+    }
+
+    private void buscar_eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        Connection con = null;//Objeto para la conexion
+        Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
+        ResultSet resultado = null;//Objeto para obtener los resultados de las consultas sql
+        String sql = "";
+
+        //Objeto Usuario, donde se guardará la información del registro a editar
+        Usuario user = null;
+        try {
+            
+            con = conBD.getCConexion();
+            System.out.println("Conectado ...");
+            //OBTENER EL DATO A CONSULTAR
+            String doc = request.getParameter("docx");
+
+            //Definición de Sentencia SQL
+            sql = "SELECT * FROM USUARIOS WHERE documento =" + doc + "";
+            //Ejecutar sentencia
+            sentencia = con.createStatement();
+            resultado = sentencia.executeQuery(sql);
+
+            // VER SI HAY RESULTADODOS
+            while (resultado.next()) {
+               user = new Usuario(resultado.getInt(1), resultado.getString(2),
+                        resultado.getString(3), resultado.getString(4), resultado.getString(5), resultado.getInt(6),
+                        resultado.getString(7), resultado.getInt(8), resultado.getInt(9));
+                break; //debe haber un solo registro.
+            }
+            // Agregar el usuario a la solicitud
+            request.setAttribute("usuario", user);
+
+            //Agregamos los perfiles
+
+            //Definición de Sentencia SQL
+            sql = "SELECT id,perfil FROM perfiles ORDER BY perfil";
+
+            //Ejecutar sentencia
+            sentencia = con.createStatement();
+            resultado = sentencia.executeQuery(sql);
+
+            //arreglo donde se guardaran los perfiles encontrados en la BD
+            ArrayList perfiles = new ArrayList();
+            while (resultado.next()) //si el resultado tiene datos empezar a guardarlos.
+            {
+                Perfil p = new Perfil(resultado.getString(2), resultado.getInt(1));
+                //Agregamos el perfil (FILA) encontrado al arreglo
+                perfiles.add(p);
+            }
+            // Agregar el arreglo de perfiles a la solicitud
+            request.setAttribute("Perfiles", perfiles);
+
+            //redirigir la solicitud a la página JSP
+            request.getRequestDispatcher("/EliminarUsuarios.jsp").include(request, response);
+            
+        } catch (SQLException ex) {
+            System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
+            request.getRequestDispatcher("/Error.jsp").forward(request, response);
+        }
+        
+        
+        
+    }
+
+    private void eliminaruno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       //Objetos para manipular la conexion y los datos
+        Connection con = null;//Objeto para la conexion
+        Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
+        int resultado = 0;//resultado de las inserción sql2
+        String sql = "";
+
+        try {
+             //ESTABLECER CONEXION
+        
+            con = conBD.getCConexion();
+            System.out.println("Conectado ...");
+
+            //OBTENER EL DATO A ELIMINAR
+            String doc = request.getParameter("doc");
+            String perfil = request.getParameter("idperfil");
+
+            if ("1".equals(perfil)) {
+
+                System.out.println("Administrador no se puede Borrar !");
+                request.setAttribute("mensaje", "Imposible borrar Administrador !");
+
+            } else {
+
+                //Definición de Sentencia SQL
+                sql = "DELETE FROM USUARIOS WHERE documento =" + doc + "";
+
+                //Ejecutar sentencia
+                sentencia = con.createStatement();
+                resultado = sentencia.executeUpdate(sql);
+                System.out.println("Borrado exitoso !");
+                request.setAttribute("mensaje", "Registro borrado exitosamente !");
+            }
+            //listar de nuevo los datos
+            
+            request.getRequestDispatcher("/EliminarUsuarios.jsp").include(request, response);
+
+        }catch (SQLException ex) {
+            System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
+            request.getRequestDispatcher("/Error.jsp").forward(request, response);
+        }  
+        
+        
+        
+        
     }
 }

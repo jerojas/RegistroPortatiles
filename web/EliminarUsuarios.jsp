@@ -3,32 +3,50 @@
     Created on : 15/10/2012, 04:32:20 PM
     Author     : JEOVANY
 --%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
+<%@page import="Entidades.*"%>
 <%
 
-        String nombre = request.getParameter("correoo");
-        String codigo = (String)request.getAttribute("cod");
-    Integer guardo = (Integer) request.getAttribute("guardoOK");
-    String mensaje = "";
-    String mensaje2 = "";
-     String mensaje3 = "";
-    String accion = "insertar";//la acción será un nuevo registro 
-    
-    if (guardo != null) {
-        mensaje2 = "Registro ingresado exitosamente";
+       //Parámetros de entrada
+    Usuario e = (Usuario) request.getAttribute("usuario");
+   
+    String doc = "";
+    String nombre = "";
+    String apellidos = "";
+    String email = "";
+    String clave = "";
+    String telefono = "";
+    int genero = 2;
+    int idperfil = -1;
+    String estado = "";
+
+    String accion = "buscar";//por defecto es un nuevo registro
+   
+    String titulo = "Nuevo Usuario";
+    if (e != null) //si el usuario no es nulo significa que es modificación
+    {
+        doc = Integer.toString(e.getDoc());
+        nombre = e.getNombres();
+        apellidos = e.getApellidos();
+        email = e.getCorreo();
+        clave = e.getClave();
+        telefono = e.getTelefono();
+        genero = e.getGenero();
+        idperfil = e.getIdperfil();
+        estado = Integer.toString(e.getEstado());
+        
     }
     
-    if (codigo != null ) {
-        mensaje3 = "El Código ya existe. Por favor digite otro codigo ";
-    }
     
 
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Usuarios</title>
+        <title>Eliminar Usuarios</title>
         <link type="text/css" href="css/estiloreliminarusuario.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
@@ -74,8 +92,7 @@
                 
             </div>
 
-
-                <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
+             <form name="elim"  id="elim" method="POST" action="ControlarUsuarios"> 
                             <div id="cajabuscar" >
                                 <div>
                                 <br>
@@ -85,13 +102,17 @@
                                 <br>
                                 </div>
                                 <div>
-                                <input id="doc" name="doc" class="camp" type="text" maxlength="255" value=""/> 
+                                <input id="docx" name="docx" class="camp" type="text" maxlength="255" value="" required autofocus/> 
                                 </div>
                             </div>
-                    <div id="btnbuscar">
+                 <div id="btnbuscar">
                         <br>
-                         <input type="button" class="buscar" id = "buscar" name="buscar"  value="BUSCAR"/> 
+                         <input type="submit" class="buscar" id = "buscar" name="buscar"  value="BUSCAR"/> 
                     </div>
+                 <input type="hidden" name="accion" value="<%=accion%>" />
+             </form>
+             <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
+                    
                     
                               
                 <fieldset id="marcos">
@@ -104,18 +125,18 @@
                             <li id="li_1" >
                                 <label class="description" for="element_1">Documento:</label>
                                 <div>
-                                    <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value="<%=doc%>" required/> 
                                 </div> 
                             </li>	
                             <li id="li_8" >
                                 <label class="description" for="element_8">Nombre: </label>
                                 <div>
-                                    <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value="<%=nombre%>" required/> 
                                 </div> 
                             </li>		<li id="li_9" >
                                 <label class="description" for="element_9">Apellidos: </label>
                                 <div>
-                                    <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
+                                    <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value="<%=apellidos%>" required/> 
                                 </div> 
                             </li>
                             </div>
@@ -124,19 +145,19 @@
                                 <li id="li_4" >
                                     <label class="description" for="element_4">Email: </label>
                                     <div>
-                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value="<%=email%>"/> 
                                     </div> 
                                 </li>		<li id="li_5" >
                                     <label class="description" for="element_5">Password: </label>
                                     <div>
-                                        <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value=""/> 
+                                        <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value="<%=clave%>"required/> 
                                     </div> 
                                 </li>	
 
                                 <li id="li_6" >
-                                    <label class="description" for="element_6">Repita Password:</label>
+                                    <label class="description" for="element_6">Estado:</label>
                                     <div>
-                                        <input id="repitapassword" name="repitapassword" class="element text medium" type="password" maxlength="255" value="" />
+                                        <input id="estado" name="estado" class="element text medium" type="text" maxlength="255" value="<%=estado%>" />
                                     </div>
                                      </li>
                             </div>
@@ -148,15 +169,49 @@
                                     <div>
                                        
                                          <select  name="genero" size = 1 id = "genero" class="element text medium" >
-                                    <option value="2"> Seleccione el género</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="0">Femenino</option>
+                                    <option value="2">Seleccione el Género</option>
+                        <%
+                            if (accion.equals("buscar")) {
+                                if (genero == 0) {%>
+                        <option value="0" selected>Femenino</option>
+                        <option value="1">Masculino</option>
+                        <%} else {
+                        %>
+                        <option value="0" >Femenino</option>
+                        <option value="1" selected>Masculino</option>
+                        <%}
+                        } else { //es un nuevo registro
+                        %>
+                        <option value="2">Seleccione el Género</option>
+                        <option value="0">Femenino</option>
+                        <option value="1">Masculino</option>
+                        <%}//fin accion
+                        %>
                                 </select> 
                                     </div> 
                                 </li>			<li id="li_7" >
                             <label class="description" for="element_7">Teléfono: </label>
                             <div>
-                                <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value=""/> 
+                                <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value="<%=telefono%>"/> 
+                            </div> 
+                        </li>
+                                                <li id="li_8" >
+                            <label class="description" for="element_7">Perfil: </label>
+                            <div class ="campo">
+                               <select name="listaPerfil">
+                        <option value="0" selected>
+                            Seleccionar el Perfil
+                        </option>
+                        <%List ListaPerfiles = (List) request.getAttribute("Perfiles");//se recibe el arreglo
+                            System.out.print("Cargando Perfiles...");
+                            Perfil oPerfil = null;//se define un objeto 
+                            for (int i = 0; i < ListaPerfiles.size(); i++) {
+                                oPerfil = (Perfil) ListaPerfiles.get(i);%>
+                                <option value="<%=oPerfil.getId()%>" <%= idperfil == oPerfil.getId() ? " selected" : ""%>>
+                            <%=oPerfil.getNombre()%>
+                        </option>
+                        <%}%>
+                    </select>
                             </div> 
                         </li>
 
@@ -171,11 +226,10 @@
                     <input type="button" class="button medium blue" id = "validar" name="validar" value="ELIMINAR"/>
                     <br>
                     <br> 
-       <b><font color="RED"><%=mensaje2%></font></b>
-       <b><font color="RED"><%=mensaje3%></font></b>               
+                   
 
                 </div>
-                 <input type="hidden" name="accion" value="<%=accion%>" />
+                 <input type="hidden" name="accion" value="eliminarr" />
     </form>
 
 
