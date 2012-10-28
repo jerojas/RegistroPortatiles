@@ -171,7 +171,7 @@
                                 </li>
                                
                                 
-                                <%=mensaje2%>
+                               
 
                             </div>
                         </ul>
@@ -182,6 +182,8 @@
                             <br>                        
 
                         </div>
+                        
+                         <b><font color="RED"><%=mensaje2%></font></b>
                     </div>
                 </fieldset> 
                 <input type="hidden" name="accion" value="<%=accion%>" />
@@ -220,6 +222,9 @@
                 <div class= "alerta" id="errorcolor">
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
         </div>
         <div id="finalpaginalogin">
             <br>

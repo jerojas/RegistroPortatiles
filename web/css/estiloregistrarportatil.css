@@ -49,9 +49,9 @@ margin: 0px; padding: 0px
     
 }
 .btn{
-   text-align: center;
-margin-top: 15px;
-position: relative;
+  margin-top: 28px;
+text-align: center;
+width: 487px;
 }
 .campos select{
     width: 210px;
@@ -162,12 +162,12 @@ background: yellow;
    /*background-color: whitesmoke;
     border-radius: 25px;*/
     
-   background-color: #CCFFCC;
-    height: 592px;
-    left: 70px;
-    position: absolute;
-    top: 181px;
-    width: 1213px;
+   background-color: #CFC;
+height: auto;
+left: 70px;
+position: relative;
+top: -3px;
+width: 1213px;
     
 }
 .cuerpoindex{
@@ -188,21 +188,7 @@ background: yellow;
     width: 1213px;
 }
 
-#finalpagina{
-    
-     background: none repeat scroll 0 0 #99FFFF;
-    height: 100px;
-    left: 70px;
-    position: relative;
-    text-align: center;
-    top: 595px;
-    width: 1213px;
-     font-weight:bold;
-      font-size: 12px;
-       font-family:'Arial';
-color:       #006633;
-    
-}
+
 #finalpaginalogin{
     
      background: none repeat scroll 0 0 #99FFFF;
@@ -210,7 +196,7 @@ color:       #006633;
     left: 70px;
     position: relative;
     text-align: center;
-    top: 586px;
+    top: auto;
     width: 1213px;
      font-weight:bold;
       font-size: 12px;
@@ -454,11 +440,11 @@ text-align: left;
 
 #marcos{
     
-   height: 245px;
-    margin-left: 1px;
-    margin-top: 49px;
-    width: 780px;
-    position: relative;
+ height: 208px;
+margin-left: 1px;
+margin-top: 49px;
+width: 514px;
+position: relative;
       
 }
 #prifila{
@@ -468,8 +454,8 @@ text-align: left;
 #segfila{
    
     margin-left: 270px;
-   margin-top: -165px;
-    width: 211px;
+margin-top: -111px;
+width: 211px;
 }
 #terfila{
    
@@ -483,4 +469,8 @@ text-align: left;
   width: 315px;
 text-align: center;
 margin-top: -12px;
+}
+
+#full{
+    position: absolute;
 }

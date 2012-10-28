@@ -17,20 +17,17 @@
         mensaje2 = "Registro ingresado exitosamente";
     }
     
-  
-    
-
-%>
+  %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Propieatario</title>
-        <link type="text/css" href="css/estiloregistrarpropietario.css" rel="stylesheet" />
+        <title>Registrar Portatil</title>
+        <link type="text/css" href="css/estiloregistrarportatil.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
-        <script src = "js/scripts.js"></script>
+        <script src = "js/scriptsreportatiles.js"></script>
              <link type="text/css" href="css/Botones.css" rel="stylesheet" />
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css"/> 
@@ -40,6 +37,7 @@
         <link href="imagenes/favicon.png" type="image/x-icon" rel="shortcut icon" />
     </head>
     <body>
+        <div id="full">
         <div class="header"id ="header"> 
             <img src="imagenes/header.png" />
             <div id="logo" >
@@ -77,109 +75,51 @@
                            </div>
 
 
-            <form name="reg"  id="reg" method="POST" action="ControlarPropietario"> 
+            <form name="reg"  id="reg" method="POST" action="ControlarPortatiles"> 
 
                 <fieldset id="marcos" >
-                    <legend><strong>Registrar Propietario  </strong> </legend>
+                    <legend><strong>Registrar Portatil  </strong> </legend>
                     <div class="principal" align="CENTER" >
                         <ul >
                             <div id="prifila">
-                                <li id="li_1" >
-                                    <label class="description" for="element_1">Código </label>
+                                 <li id="li_9" >
+                              
+                                    <label class="description" for="element_8">Código del Propietario: </label>
                                     <div>
                                         <input id="cod" name="cod" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
-                                </li>	
-                                <li id="li_8" >
-                                    <label class="description" for="element_8">Nombre: </label>
-                                    <div>
-                                        <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
-                                    </div> 
-                                </li>		<li id="li_9" >
-                                    <label class="description" for="element_9">Apellidos: </label>
-                                    <div>
-                                        <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
-                                    </div> 
                                 </li>
-
                                 
-                            </div>
-                           
-                            <div id="segfila">
-                                 <li id="li_2" >
-                                    <label class="description" for="element_2">Documento: </label>
+                          <li id="li_8" >
+                              
+                                    <label class="description" for="element_8">Mac: </label>
                                     <div>
-                                        <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="mac" name="mac" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
                                 </li>
-                                <li id="li_4" >
-                                    <label class="description" for="element_4">Email: </label>
+                            </div>
+                             <div id="segfila">
+                                <li id="li_7" >
+                                    <label class="description" for="element_7">Marca del Portátil: </label>
                                     <div>
-                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="pc" name="pc" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
                                 </li>
                                 <li id="li_7" >
-                                    <label class="description" for="element_7">Teléfono: </label>
+                                    <label class="description" for="element_7">Color: </label>
                                     <div>
-                                        <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="color" name="color" class="element text medium" type="text" maxlength="255" value=""/> 
                                     </div> 
-                                </li>
-                                
-                            </div>
-
-                            <div id="terfila">
-                                
-                                <li id="li_3" >
-                                    <label class="description" for="element_3">Carrera: </label>
-                                    <div>
-                                        <input id="carrera" name="carrera" class="element text medium" type="text" maxlength="255" value=""/> 
-                                    </div> 
-                                </li>
-
-                                <li id="li_10" >
-                                    <label class="description" for="element_10">Semestre: </label>
-                                    <div>
-                                        <select class="element select medium" id="semestre" name="semestre"> 
-
-                                            <option value="0" >Seleccione el semestre</option>
-                                            <option value="1" >1</option>
-                                            <option value="2" >2</option>
-                                            <option value="3" >3</option>
-                                            <option value="4" >4</option>
-                                            <option value="5" >5</option>
-                                            <option value="6" >6</option>
-                                            <option value="7" >7</option>
-                                            <option value="8" >8</option>
-                                            <option value="9" >9</option>
-                                            <option value="10" >10</option>
-                                            <option value="11" >11</option>
-
-                                        </select>
-                                    </div> 
-                                </li>
-                                
-                                <li id="li_7" >
-                                    <label class="description" for="element_7">Genero: </label>
-                                     <div>
-                                       
-                                         <select  name="genero" size = 1 id = "genero" class="element text medium" >
-                                    <option value="2"> Seleccione el género</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="0">Femenino</option>
-                                </select> 
-                                    </div> 
-                                </li>
-                               
-                                
-                                <%=mensaje2%>
-
-                            </div>
+                                </li>   
+                            
+                             </div>
                         </ul>
 
                         <div class="btn">
-                            <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRARSE"/>
+                            <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRAR"/>
                             <br>
-                            <br>                        
+                            <br> 
+                             <b><font color="RED"><%=mensaje2%></font></b>
 
                         </div>
                     </div>
@@ -220,6 +160,9 @@
                 <div class= "alerta" id="errorcolor">
                 </div>
             </div>
+            <br>
+            <br>
+            <Br>
         </div>
         <div id="finalpaginalogin">
             <br>
@@ -229,6 +172,6 @@
             SERGIO MOSQUERA <br>
             AÑO 2012 
         </div>
-
+        </div>
     </body>
 </html>

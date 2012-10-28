@@ -5,7 +5,6 @@
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
@@ -37,8 +36,7 @@ public class ControlarPortatiles extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       
-        
-        String accion = request.getParameter("accion");
+         String accion = request.getParameter("accion");
         //registrar nuevo usuario en el portal
         if (accion.equals("insertar")) {
             insertar(request, response);
@@ -113,21 +111,11 @@ public class ControlarPortatiles extends HttpServlet {
 
     private void insertar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cod = request.getParameter("cod");
-        String doc = request.getParameter("doc");
-        String nombre = request.getParameter("nombre");
-        String ape = request.getParameter("ape");
-        String email = request.getParameter("correoo");
-        String tel = request.getParameter("tel");
-        String genero = request.getParameter("genero");
-        String carrera = request.getParameter("carrera");
-        String semestre = request.getParameter("semestre");
-//        String nombrepc = request.getParameter("mac");
-//        String marca = request.getParameter("pc");
-//        String color = request.getParameter("color");
-        String estado = "0"; //visitante
-        RequestDispatcher vista;  
-        
-        
+        String mac = request.getParameter("mac");
+        String marca = request.getParameter("pc");
+        String color = request.getParameter("color");
+       RequestDispatcher vista;  
+                
          Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
         int resultado = 0;//resultado de las inserción sql
@@ -135,17 +123,13 @@ public class ControlarPortatiles extends HttpServlet {
         
         
         try {
-            //CARGAR DRIVER
-//            Class.forName(driver);
-            //ESTABLECER CONEXION
+   
             con = conBD.getCConexion();
             System.out.println("Conectado ...");
             //Definición de Sentencia SQL
            
                 //Definición de Sentencia SQL
-               sql = "INSERT INTO PROPIETARIOS(codigo,nombre,apellidos,documento,correo,telefono,carrera,"
-                        + "semestre,estado,genero) VALUES ("+cod+",'"+nombre+"','"+ape+"',"+doc+",'"+email
-                        +"','"+tel+"','"+carrera+"','"+semestre+"',"+estado+","+genero+")";
+               sql = "INSERT INTO portatiles(mac,marca,color,id_usuario)VALUES('"+mac+"','"+marca+"','"+color+"',"+cod+")";
                
                 sentencia = con.createStatement();
                 resultado = sentencia.executeUpdate(sql);
@@ -173,4 +157,5 @@ public class ControlarPortatiles extends HttpServlet {
         
         
     }
+    
 }
