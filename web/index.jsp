@@ -14,7 +14,7 @@
     }
    
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,7 +59,7 @@
                     <div>
                         <input  value="Entrar" type="button" id="Entrarlogin" class="button large blue"  > 
                         <br>
-                        <a href="#" id="olvipass">¿Has olvidado tu contraseña? </a>
+                        
                     </div>
                     <p style="text-align:center;color: red; margin-top: 168px; margin-left: 70px;">
                     <b><font color="RED"><%=mensaje%></font></b>

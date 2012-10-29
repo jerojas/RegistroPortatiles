@@ -22,7 +22,6 @@
     } else {
         nombre = (String) sesionOk.getAttribute("usuario");
         perfil = (String) sesionOk.getAttribute("perfil");
-        sperfil=(String) sesionOk.getAttribute("desperfil");
         mensaje = request.getAttribute("mensaje") == null ? "" : (String) request.getAttribute("mensaje");
     }
 %>
@@ -53,22 +52,39 @@
             <div id="menuadmin">
                 <ul id="css3menu1" class="topmenu">
                     <li class="topfirst"><a href="Quienes somos.jsp" style="height:32px;line-height:32px;"><img src="css3menu1/home.png" alt=""/>Quiénes somos</a></li>
-                    <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><img src="css3menu1/samples.png" alt=""/>Objetivo del Portal</a></li>
+                    
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Portátiles</span></a>
                         <ul>
-                            <li><a href="RegistrarPortatiles.jsp"href="#"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
+                            <li><a href="RegistrarPortatiles.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
                             <li><a href="ControlarPortatiles?accion=listar"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
+                        </ul></li>
+                        <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Propietarios</span></a>
+                        <ul>
+                            <li><a href="RegistrarPropietarios.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Propietarios</a></li>
+                            <li><a href="EditarPropietarios.jsp"><img src="css3menu1/256sub21.png" alt=""/>Modificar Propietarios</a></li>
+                             <li><a href="EliminarPropietarios.jsp"><img src="css3menu1/256sub21.png" alt=""/>Eliminar Propietarios</a></li>
                         </ul></li>
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Usuarios</span></a>
                         <ul>
-                            <li><a href="RegistrarUsuarios.jsp" href="#"><img src="css3menu1/256sub1.png" alt=""/>Registrar Usuarios</a></li>
-                            <li><a href="EliminarUsuarios.jsp" href="ControlarUsuarios?accion=listar" href="#"><img src="css3menu1/256sub2.png" alt=""/>Editar y Eliminar Usuarios</a></li>
+                            <li><a href="RegistrarUsuarios.jsp"><img src="css3menu1/256sub1.png" alt=""/>Registrar Usuarios</a></li>
+                            <li><a href="EditarUsuarios.jsp"><img src="css3menu1/256sub2.png" alt=""/>Modificar Usuarios</a></li>
+                            <li><a href="EliminarUsuarios.jsp"><img src="css3menu1/256sub2.png" alt=""/>Eliminar Usuarios</a></li>
                         </ul></li>
                     <li class="toplast"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/256sub12.png" alt=""/>Reportes</span></a>
-                        </li>
-                         </div>
+                        <ul>
+                            <li><a href="#"><img src="css3menu1/256sub13.png" alt=""/>Generar Reporte </a></li>
+                        </ul></li>
+                           </div>
 
-
+ <%
+            if (perfil.equals("1")) {
+        %>
+        <jsp:include page="Quienes somos.jsp"/>
+        <%} else if (perfil.equals("2")) {
+        %>
+        <jsp:include page="Ingreso.jsp"/>
+        <%} 
+        %>
         </div>
         <div id="finalpagina">
             <br>

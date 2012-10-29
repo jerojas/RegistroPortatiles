@@ -64,6 +64,14 @@ body
     font-family: serif;
     font-weight: bold;
 }
+
+#mensajeIN{
+    width: 271px;
+
+margin-top: -53px;
+margin-left: 881px;
+
+}
 .etiqueta2{
     width: 100px;
     display: block;
@@ -143,13 +151,12 @@ h3{
     /*background-color: whitesmoke;
      border-radius: 25px;*/
 
-    background-color: #CCFFCC;
-    height: 450px;
+    background-color: #CFC;
+    height: 435px;
     left: 70px;
     position: absolute;
     top: 181px;
     width: 1213px;
-
 }
 .cuerporeg{
 
@@ -187,21 +194,23 @@ h3{
     width: 1213px;
 }
 
-#finalpagina{
 
-    background: none repeat scroll 0 0 #99FFFF;
-    height: 100px;
-    left: 70px;
-    position: relative;
-    text-align: center;
-    top: 595px;
-    width: 1213px;
-    font-weight:bold;
-    font-size: 12px;
-    font-family:'Arial';
-    color:       #006633;
-
+#finalpagina {
+background: none repeat scroll 0 0 #9FF;
+height: 100px;
+left: 70px;
+position: absolute;
+text-align: center;
+top: auto;
+width: 1213px;
+font-weight: bold;
+font-size: 12px;
+font-family: 'Arial';
+color: #063;
+margin-top: 436px;
 }
+
+
 #finalpaginalogin{
 
     background: none repeat scroll 0 0 #99FFFF;
@@ -209,13 +218,13 @@ h3{
     left: 70px;
     position: absolute;
     text-align: center;
-    top: 532px;
+
     width: 1213px;
     font-weight:bold;
     font-size: 12px;
     font-family:'Arial';
     color:  #006633;
-
+    top: 616px;
 
 
 }
@@ -486,6 +495,8 @@ h3{
     background: red;
 }
 #letrass{
+
+    color: red;
     font-size: 28px;
     position: absolute;
     width: 350px;
@@ -546,8 +557,8 @@ h3{
 }
 
 #Entrarlogin{
-margin-left: 498px;
-margin-top: 112px;
+    margin-left: 498px;
+    margin-top: 112px;
 
 }
 #olvipass{
@@ -555,4 +566,12 @@ margin-top: 112px;
     left: 545px;
     top: 270px;  
 
+}
+#marcoimagen{
+
+    background: blue;
+    width: 167PX;
+    height: 198px;
+    margin-left: 161px;
+    margin-top: 54px;
 }

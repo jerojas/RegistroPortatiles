@@ -22,7 +22,7 @@
     
   %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,14 +52,14 @@
             </div>
         </div>
         <div class="cuerporeg" id="content" align="CENTER"> 
-            <div id="menuadmin">
+           <div id="menuadmin">
                 <ul id="css3menu1" class="topmenu">
                     <li class="topfirst"><a href="Quienes somos.jsp" style="height:32px;line-height:32px;"><img src="css3menu1/home.png" alt=""/>Quiénes somos</a></li>
-                    <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><img src="css3menu1/samples.png" alt=""/>Objetivo del Portal</a></li>
+                
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Portátiles</span></a>
                         <ul>
                             <li><a href="RegistrarPortatiles.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
-                            <li><a href="EditarEliminarPortatiles.jsp"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
+                            <li><a href="ControlarPortatiles?accion=listar"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
                         </ul></li>
                         <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Propietarios</span></a>
                         <ul>
@@ -79,7 +79,10 @@
                         </ul></li>
                            </div>
 
-
+<div id='mensajeIN'>                
+                <b>Bienvenido Señor (Salir)&nbsp;&nbsp;</b>
+                <a href="ControlarUsuarios?accion=salir"><img src="imagenes/salir.gif" width="48" height="48" alt="salir"/></a>
+            </div>
             <form name="reg"  id="reg" method="POST" action="ControlarPortatiles"> 
 
                 <fieldset id="marcos" >

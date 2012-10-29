@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -56,6 +57,8 @@ public class ControlarUsuarios extends HttpServlet {
         } else if (accion.equals("modificar")) {
             //modificar los datos de un usuario
             modificar(request, response);
+        } else if (accion.equals("salir")) { //salir de la aplicacion
+            salir(request, response);//
         }
     }
 
@@ -527,5 +530,12 @@ public class ControlarUsuarios extends HttpServlet {
 
 
 
+    }
+
+    private void salir(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        
+         HttpSession sesionOk = request.getSession();//se obtiene la sesion creada
+        sesionOk.invalidate();//se destruye la sesión
+        response.sendRedirect("index.jsp");
     }
 }

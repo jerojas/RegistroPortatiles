@@ -117,13 +117,9 @@ public class ValidarLogin extends HttpServlet {
 //                        + "clave = '" + pass + "'";
 //              
                 //Definición de Sentencia SQL
-                sql = "SELECT usuarios.nombres,usuarios.perfil,correo,perfiles.perfil "
-                        + "FROM usuarios,perfiles "
-                        + "WHERE usuarios.perfil=perfiles.id"
-                        + "AND correo= '" + email + "' AND "
+               
+                sql = "SELECT nombres, perfil, correo FROM usuarios WHERE correo = '" + email+ "' AND "
                         + "clave = '" + pass + "'";
-                
-                
                   
                 //Ejecutar sentencia
                 sentencia = con.createStatement();
@@ -135,15 +131,25 @@ public class ValidarLogin extends HttpServlet {
                     System.out.println("autenticado ...");
                     //creamos la sesion
                     HttpSession sesionOk = request.getSession();//creamos la sesion
+                     sesionOk.setAttribute("nombre", resultado.getString(1));
                     //agregamos el usuario a la sesión
-                    sesionOk.setAttribute("usuario", resultado.getString(2));
+                    sesionOk.setAttribute("usuario", resultado.getString(3));
                     //agregamos el perfil a la sesión                                        
-                    sesionOk.setAttribute("perfil", resultado.getString(8));
+                    sesionOk.setAttribute("perfil", resultado.getString(2));
                     //agregamos el id del usuario                                        
-                    sesionOk.setAttribute("documento", resultado.getString(1));
-                    //agregamos la descripcion del perfil
-                    sesionOk.setAttribute("desperfil", resultado.getString("perfil"));
-                    vista = request.getRequestDispatcher("Home.jsp");
+                    String perfil = resultado.getString("perfil");
+                    
+                    if ("1".equals(perfil)){
+                        
+                       vista = request.getRequestDispatcher("Quienes somos.jsp"); 
+                    }else{
+                        
+                         vista = request.getRequestDispatcher("Ingreso.jsp");  
+                        
+                    }
+                      
+                    
+//                    vista = request.getRequestDispatcher("Home.jsp");
                     //request.getRequestDispatcher("/Index.jsp").include(request, response);
 
                 } else {
