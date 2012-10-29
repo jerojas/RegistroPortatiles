@@ -27,7 +27,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Propieatario</title>
+        <title>Registrar Propietario</title>
         <link type="text/css" href="css/estiloregistrarpropietario.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
@@ -136,27 +136,12 @@
                                     </div> 
                                 </li>
 
-                                <li id="li_10" >
-                                    <label class="description" for="element_10">Semestre: </label>
-                                    <div>
-                                        <select class="element select medium" id="semestre" name="semestre"> 
-
-                                            <option value="0" >Seleccione el semestre</option>
-                                            <option value="1" >1</option>
-                                            <option value="2" >2</option>
-                                            <option value="3" >3</option>
-                                            <option value="4" >4</option>
-                                            <option value="5" >5</option>
-                                            <option value="6" >6</option>
-                                            <option value="7" >7</option>
-                                            <option value="8" >8</option>
-                                            <option value="9" >9</option>
-                                            <option value="10" >10</option>
-                                            <option value="11" >11</option>
-
-                                        </select>
-                                    </div> 
-                                </li>
+                                 <li id="li_3" >
+                        <label class="description" for="element_3">Semestre: </label>
+                        <div>
+                            <input id="semestre" name="semestre" class="element text medium" type="text" maxlength="255" value=""/> 
+                        </div> 
+                        </li>
                                 
                                 <li id="li_7" >
                                     <label class="description" for="element_7">Genero: </label>
@@ -170,20 +155,18 @@
                                     </div> 
                                 </li>
                                
-                                
-                               
-
                             </div>
                         </ul>
 
                         <div class="btn">
-                            <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRARSE"/>
+                            <input type="button" class="button medium blue" id = "validar" name="validar" value="GUARDAR"/>
                             <br>
                             <br>                        
 
                         </div>
-                        
-                         <b><font color="RED"><%=mensaje2%></font></b>
+                        <div id="mensajerror">
+                        <b><font color="RED"><%=mensaje2%></font></b>
+                        </div>
                     </div>
                 </fieldset> 
                 <input type="hidden" name="accion" value="<%=accion%>" />

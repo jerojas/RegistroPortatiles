@@ -6,7 +6,7 @@ margin: 0px; padding: 0px
 
 }
 .principal{
-        height: 167px;
+        height: 268px;
     left: 13px;
     position: relative;
     text-align: left;
@@ -49,8 +49,9 @@ margin: 0px; padding: 0px
     
 }
 .btn{
-    text-align: center;  
-     margin-top: 3px;
+   text-align: center;
+margin-top: 15px;
+position: relative;
 }
 .campos select{
     width: 210px;
@@ -122,94 +123,36 @@ background: yellow;
 
 .header{
   
-    height: 60%;
-   
-    width: 89%;
-    background-color: white;
-    margin-top: 5px;
-    margin-left: 70px;
-    /*border: 10px groove whitesmoke; */
-    border-radius: 25px;
+    height: auto;
+width: 90%;
+background-color: white;
+margin-top: 5px;
+margin-left: 70px;
+border-radius: 25px;
     
   
 }
-.cuerpo{
 
-/*border: 1px solid black;*/
-  /*  height: 450px;
-   width: 89%;
-   margin-left: 70px;
-   /*border: 10px outset #cccccc;*/
-   /*background-color: whitesmoke;
-    border-radius: 25px;*/
-    
-  background-color: #CCFFCC;
-    height: 450px;
-    left: 70px;
-    position: absolute;
-    top: 181px;
-    width: 1213px;
-    
-}
 .cuerporeg{
 
-/*border: 1px solid black;*/
-  /*  height: 450px;
-   width: 89%;
-   margin-left: 70px;
-   /*border: 10px outset #cccccc;*/
-   /*background-color: whitesmoke;
-    border-radius: 25px;*/
-    
-   background-color: #CFC;
+     background-color: #CFC;
 height: auto;
 left: 70px;
 position: relative;
-top: auto;
+top: -3px;
 width: 1213px;
     
 }
-.cuerpoindex{
 
-/*border: 1px solid black;*/
-  /*  height: 450px;
-   width: 89%;
-   margin-left: 70px;
-   /*border: 10px outset #cccccc;*/
-   /*background-color: whitesmoke;
-    border-radius: 25px;*/
-    
-  background-color: #CCFFCC;
-    height: 60%;
-    left: 70px;
-    position: absolute;
-    top: 181px;
-    width: 1213px;
-}
 
-#finalpagina{
+#finalpaginalogin{
     
      background: none repeat scroll 0 0 #99FFFF;
     height: 100px;
-    left: 70px;
+   
     position: relative;
     text-align: center;
-    top:auto;
-    width: 1213px;
-     font-weight:bold;
-      font-size: 12px;
-       font-family:'Arial';
-color:       #006633;
-    
-}
-#finalpaginausuarios{
-    
-     background: none repeat scroll 0 0 #99FFFF;
-    height: 100px;
-    left: 70px;
-    position: relative;
-    text-align: center;
-   top: auto;
+    top: auto;
     width: 1213px;
      font-weight:bold;
       font-size: 12px;
@@ -279,8 +222,7 @@ height: auto;
 padding: 5px;
 width: 794px;
 color: red;
-margin-top: -2px;
-
+margin-top: 34px;
 text-align: center;
 	 
 	}
@@ -379,7 +321,7 @@ padding: 5px;
   text-decoration:none;
   color:#333333;
 }
-#botone {
+#boton {
     
     position:absolute;
     left:647px;
@@ -438,7 +380,13 @@ padding: 5px;
 }
 
 #menuadmin{
-    
+    background: none repeat scroll 0 0 #99D895;
+border: 1px inset whiteSmoke;
+border-radius: 3px;
+height: auto;
+width: 1206px;
+border: 3px groove #B5F3AF;
+text-align: left;
         
 }
 
@@ -448,10 +396,11 @@ padding: 5px;
 
 #marcos{
     
-  height: 192px;
-margin-top: 49px;
-width: 780px;
-text-align: center;
+   height: 245px;
+    margin-left: 1px;
+    margin-top: 49px;
+    width: 780px;
+    position: relative;
       
 }
 #prifila{
@@ -461,17 +410,19 @@ text-align: center;
 #segfila{
    
     margin-left: 270px;
-   margin-top: -166px;
+   margin-top: -165px;
     width: 211px;
 }
 #terfila{
    
     margin-left: 546px;
-   margin-top: -165px;
+  margin-top: -169px;
     width: 211px;
 }
 
-#aster{
-    text-align: center;
-margin-top: 7px;
+#registrarpc{
+    
+  width: 315px;
+text-align: center;
+margin-top: -12px;
 }

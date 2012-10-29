@@ -162,12 +162,12 @@ background: yellow;
    /*background-color: whitesmoke;
     border-radius: 25px;*/
     
-   background-color: #CCFFCC;
-    height: 592px;
-    left: 70px;
-    position: absolute;
-    top: 181px;
-    width: 1213px;
+   background-color: #CFC;
+height: auto;
+left: 70px;
+position: relative;
+top: -3px;
+width: 1213px;
     
 }
 .cuerpoindex{
@@ -210,7 +210,7 @@ color:       #006633;
     left: 70px;
     position: relative;
     text-align: center;
-    top: 586px;
+    top: auto;
     width: 1213px;
      font-weight:bold;
       font-size: 12px;
@@ -310,10 +310,10 @@ padding: 5px;
 #mensajerror{
     
         width: 250px;
-      margin-left: 848px;
-    color: red;
-    height: 33px;
-    margin-top: -28px
+margin-left: 266px;
+color: red;
+height: 33px;
+margin-top: 14px;
 
 }
 

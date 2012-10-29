@@ -11,8 +11,8 @@ $(document).ready(function(){
     });
     
     
-    $("#boton").click(function(){        
-        if ($("#correo").attr("value")!="" && $("#password").attr("value")!="" ){            
+    $("#Entrarlogin").click(function(){        
+        if ($("#campo1").attr("value")!="" && $("#campo2").attr("value")!="" ){            
             $("#for").submit();
             
         }else
@@ -21,8 +21,8 @@ $(document).ready(function(){
             $( "#dialog" ).dialog( "option", "width", 400 );
             $( "#dialog" ).dialog( "option", "title", "Login !");
             $( "#dialog" ).dialog( "open" ); 
-            $("#correo").attr("value","");
-            $("#password").attr("value","");
+            $("#campo1").attr("value","");
+            $("#campo2").attr("value","");
         }                
     });
     
@@ -185,6 +185,21 @@ $(document).ready(function(){
 
     //ingresar solo numeros en el telefono
     $("#tel").keypress(function(e) { 
+        //(var key = condicion? valorsitrue: valorsifalse)
+        var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+        //presiono borrar
+        if (key==8){
+            return true;
+        }
+        // si es presionado un numero
+        if(key < 48 || key > 57)
+        { 
+            return false;
+        }
+    });
+    
+    // ingreso solo numeros al campo de busqueda de la pagina de EliminarUsuarios
+    $("#docx").keypress(function(e) { 
         //(var key = condicion? valorsitrue: valorsifalse)
         var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
         //presiono borrar

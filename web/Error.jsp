@@ -1,7 +1,7 @@
 <%-- 
     Document   : Error
-    Created on : 07-sep-2012, 2:10:01
-    Author     : Guillermo
+    Created on : 07-oct-2012, 2:10:01
+    Author     : SSergio
 --%>
 <%
     String mensaje = (request.getAttribute("mensaje")!=null)? (String)request.getAttribute("mensaje"):"Error !!";        

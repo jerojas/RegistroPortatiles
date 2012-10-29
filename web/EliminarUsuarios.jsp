@@ -7,10 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
 <%@page import="Entidades.*"%>
 <%
-
-       //Parámetros de entrada
+    String eliminado = request.getAttribute("mensaje") == null ? "" : (String) request.getAttribute("mensaje");
+    //Parámetros de entrada
     Usuario e = (Usuario) request.getAttribute("usuario");
-   
+
     String doc = "";
     String nombre = "";
     String apellidos = "";
@@ -22,8 +22,7 @@
     String estado = "";
 
     String accion = "buscar";//por defecto es un nuevo registro
-   
-    String titulo = "Nuevo Usuario";
+
     if (e != null) //si el usuario no es nulo significa que es modificación
     {
         doc = Integer.toString(e.getDoc());
@@ -35,10 +34,10 @@
         genero = e.getGenero();
         idperfil = e.getIdperfil();
         estado = Integer.toString(e.getEstado());
-        
+
+
     }
-    
-    
+
 
 %>
 
@@ -53,7 +52,7 @@
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css"/> 
         <link rel="stylesheet" type="text/css" href="css/view.css" media="all">
-             <link type="text/css" href="css/Botones.css" rel="stylesheet" />
+        <link type="text/css" href="css/Botones.css" rel="stylesheet" />
         <script type="text/javascript" src="js/view.js"></script>
 
         <link rel="stylesheet" href="css3menu1/style.css" type="text/css" /><style>._css3m{display:none}</style>
@@ -89,159 +88,166 @@
                         <ul>
                             <li><a href="#"><img src="css3menu1/256sub13.png" alt=""/>Generar Reporte </a></li>
                         </ul></li>
-                
+
             </div>
 
-             <form name="elim"  id="elim" method="POST" action="ControlarUsuarios"> 
-                            <div id="cajabuscar" >
-                                <div>
-                                <br>
-                                <br>
-                                <label class="busqueda" for="element_1">Digite el Documento a eliminar:</label>
-                                <br>
-                                <br>
-                                </div>
-                                <div>
-                                <input id="docx" name="docx" class="camp" type="text" maxlength="255" value="" required autofocus/> 
-                                </div>
-                            </div>
-                 <div id="btnbuscar">
+            <form name="elim"  id="elim" method="POST" action="ControlarUsuarios"> 
+                <div id="cajabuscar" >
+                    <div>
                         <br>
-                         <input type="submit" class="buscar" id = "buscar" name="buscar"  value="BUSCAR"/> 
+                        <br>
+                        <label class="busqueda" for="element_1">Digite el Documento a eliminar:</label>
+                        <br>
+                        <br>
                     </div>
-                 <input type="hidden" name="accion" value="<%=accion%>" />
-             </form>
-             <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
-                    
-                    
-                              
+                    <div>
+                        <input id="docx" name="docx" class="camp" type="text" maxlength="255" value="" required autofocus/> 
+                    </div>
+                </div>
+                <div id="btnbuscar">
+                    <br>
+                    <input type="submit" class="buscar" id = "buscar" name="buscar"  value="BUSCAR" /> 
+                </div>
+                <input type="hidden" name="accion" value="<%=accion%>" />
+            </form>
+            <b><font color="RED"><%=eliminado%></font></b> 
+            <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
                 <fieldset id="marcos">
                     <legend><strong>Eliminar Usuario </strong></legend>
                     <div class="principal">
                         <ul >
-                                                      
                             <div id="prifila">
-                                  
-                            <li id="li_1" >
-                                <label class="description" for="element_1">Documento:</label>
-                                <div>
-                                    <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value="<%=doc%>" required/> 
-                                </div> 
-                            </li>	
-                            <li id="li_8" >
-                                <label class="description" for="element_8">Nombre: </label>
-                                <div>
-                                    <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value="<%=nombre%>" required/> 
-                                </div> 
-                            </li>		<li id="li_9" >
-                                <label class="description" for="element_9">Apellidos: </label>
-                                <div>
-                                    <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value="<%=apellidos%>" required/> 
-                                </div> 
-                            </li>
+
+                                <li id="li_1" >
+                                    <label class="description" for="element_1">Documento:</label>
+                                    <div>
+                                        <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value="<%=doc%>" required  disabled=""/> 
+                                    </div> 
+                                </li>	
+                                <li id="li_8" >
+                                    <label class="description" for="element_8">Nombre: </label>
+                                    <div>
+                                        <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value="<%=nombre%>" required  disabled=""/> 
+                                    </div> 
+                                </li>		<li id="li_9" >
+                                    <label class="description" for="element_9">Apellidos: </label>
+                                    <div>
+                                        <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value="<%=apellidos%>" required  disabled=""/> 
+                                    </div> 
+                                </li>
                             </div>
                             <div id="segfila">
-                                
+
                                 <li id="li_4" >
                                     <label class="description" for="element_4">Email: </label>
                                     <div>
-                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value="<%=email%>"/> 
+                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value="<%=email%>"   <%=e != (null) ? " disabled" : ""%>/> 
                                     </div> 
                                 </li>		<li id="li_5" >
                                     <label class="description" for="element_5">Password: </label>
                                     <div>
-                                        <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value="<%=clave%>"required/> 
+                                        <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value="<%=clave%>"required  disabled=""/> 
                                     </div> 
                                 </li>	
 
                                 <li id="li_6" >
                                     <label class="description" for="element_6">Estado:</label>
                                     <div>
-                                        <input id="estado" name="estado" class="element text medium" type="text" maxlength="255" value="<%=estado%>" />
+                                        <input id="estado" name="estado" class="element text medium" type="text" maxlength="255" value="<%=estado%>"  disabled="" />
                                     </div>
-                                     </li>
+                                </li>
                             </div>
-                            
+
                             <div id="terfila">
-                           		
-                            <li id="li_2" >
+
+                                <li id="li_2" >
                                     <label class="description" for="element_2">Género: </label>
                                     <div>
-                                       
-                                         <select  name="genero" size = 1 id = "genero" class="element text medium" >
-                                    <option value="2">Seleccione el Género</option>
-                        <%
-                            if (accion.equals("buscar")) {
-                                if (genero == 0) {%>
-                        <option value="0" selected>Femenino</option>
-                        <option value="1">Masculino</option>
-                        <%} else {
-                        %>
-                        <option value="0" >Femenino</option>
-                        <option value="1" selected>Masculino</option>
-                        <%}
-                        } else { //es un nuevo registro
-                        %>
-                        <option value="2">Seleccione el Género</option>
-                        <option value="0">Femenino</option>
-                        <option value="1">Masculino</option>
-                        <%}//fin accion
-                        %>
-                                </select> 
+
+                                        <select  name="genero" size = 1 id = "genero" class="element text medium"  disabled="">
+                                            <option value = "2" >Seleccione el Género</option>
+                                            <%
+                                                if (accion.equals("buscar")) {
+                                                    if (genero == 0) {%>
+                                            <option value="0" selected>Femenino</option>
+                                            <option value="1">Masculino</option>
+                                            <%} else {
+                                            %>
+                                            <option value="0" >Femenino</option>
+                                            <option value="1" selected>Masculino</option>
+                                            <%}
+                                            } else { //es un nuevo registro
+%>
+                                            <option value="2" selected>Seleccione el Género </option>
+                                            <option value="0">Femenino</option>
+                                            <option value="1">Masculino</option>
+                                            <%}//fin accion
+%>
+                                        </select> 
                                     </div> 
                                 </li>			<li id="li_7" >
-                            <label class="description" for="element_7">Teléfono: </label>
-                            <div>
-                                <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value="<%=telefono%>"/> 
-                            </div> 
-                        </li>
-                                                <li id="li_8" >
-                            <label class="description" for="element_7">Perfil: </label>
-                            <div class ="campo">
-                               <select name="listaPerfil">
-                        <option value="0" selected>
-                            Seleccionar el Perfil
-                        </option>
-                        <%List ListaPerfiles = (List) request.getAttribute("Perfiles");//se recibe el arreglo
-                            System.out.print("Cargando Perfiles...");
-                            Perfil oPerfil = null;//se define un objeto 
-                            for (int i = 0; i < ListaPerfiles.size(); i++) {
-                                oPerfil = (Perfil) ListaPerfiles.get(i);%>
-                                <option value="<%=oPerfil.getId()%>" <%= idperfil == oPerfil.getId() ? " selected" : ""%>>
-                            <%=oPerfil.getNombre()%>
-                        </option>
-                        <%}%>
-                    </select>
-                            </div> 
-                        </li>
+                                    <label class="description" for="element_7">Teléfono: </label>
+                                    <div>
+                                        <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value="<%=telefono%>" required disabled=""/> 
+                                    </div> 
+                                </li>
+                                <li id="li_8" >
+                                    <label class="description" for="element_7">Perfil: </label>
+                                    <div class ="campo">
+
+                                        <select name="listaPerfil" size = 1 id = "perfil" class="element text medium"  disabled="">
+                                            <option value="0" selected>
+                                                Seleccionar el Perfil
+                                            </option>
+                                            <%List ListaPerfiles = (List) request.getAttribute("Perfiles");//se recibe el arreglo
+                                                System.out.print("Cargando Perfiles...");
+                                                Perfil oPerfil = null;//se define un objeto 
+                                                for (int i = 0; i < ListaPerfiles.size(); i++) {
+                                                    oPerfil = (Perfil) ListaPerfiles.get(i);%>
+                                            <option value="<%=oPerfil.getId()%>" <%= idperfil == oPerfil.getId() ? " selected" : ""%>>
+                                                <%=oPerfil.getNombre()%>
+                                            </option>
+                                            <%}%>
+                                        </select>
+                                    </div> 
+
+                                </li>
+                            </div>
+                        </ul>      
+
+
+
 
                     </div>
-                </ul>
-                    
-            </div>
-                    
-        </fieldset> 
-                    
+
+                </fieldset> 
                 <div class="btn">
-                    <input type="button" class="button medium blue" id = "validar" name="validar" value="ELIMINAR"/>
+                    <input type="submit" class="button medium blue" id = "validarr" name="validarr" value="ELIMINAR"/>
                     <br>
                     <br> 
-                   
+
 
                 </div>
-                 <input type="hidden" name="accion" value="eliminarr" />
-    </form>
+                <input type="hidden" name="accion" value="eliminarr" />
+                <input type="hidden" name="cod" value="<%=doc%>" />
+                <input type="hidden" name="perfil" value="<%=idperfil%>" />
+
+                <br>
+                <br> 
 
 
-</div>
-<div id="finalpaginausuarios">
-    <br>
-    CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
-    Medellin - Colombia <br>
-    JEOVANY ROJAS MEDINA <br>
-    SERGIO MOSQUERA <br>
-    AÑO 2012 
-</div>
+            </form>
 
-</body>
+
+        </div>
+        <div id="finalpaginausuarios">
+            <br>
+            CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
+            Medellin - Colombia <br>
+            JEOVANY ROJAS MEDINA <br>
+            SERGIO MOSQUERA <br>
+            AÑO 2012 
+        </div>
+
+    </body>
 </html>

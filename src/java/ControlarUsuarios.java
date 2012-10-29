@@ -47,12 +47,17 @@ public class ControlarUsuarios extends HttpServlet {
         } else if (accion.equals("eliminar")) {
             //eliminar un usuario
             eliminar(request, response);
-        }else if (accion.equals("buscar")){
+        } else if (accion.equals("buscar")) {
             buscar_eliminar(request, response);
-        }else if (accion.equals("eliminarr")){
+        } else if (accion.equals("buscarxaeditar")) {
+            buscar_editar(request, response);
+        } else if (accion.equals("eliminarr")) {
             eliminaruno(request, response);
+        } else if (accion.equals("modificar")) {
+            //modificar los datos de un usuario
+            modificar(request, response);
         }
-}
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -96,13 +101,13 @@ public class ControlarUsuarios extends HttpServlet {
     }// </editor-fold>
 
     private void insertar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-         String doc = request.getParameter("doc");
+
+        String doc = request.getParameter("doc");
         String nombre = request.getParameter("nombre");
         String ape = request.getParameter("ape");
         String email = request.getParameter("correoo");
         String pass = request.getParameter("passwor");
-       String tel = request.getParameter("tel");
+        String tel = request.getParameter("tel");
         String genero = request.getParameter("genero");
         String perfil = "2"; //visitante
         String estado = "0"; //visitante
@@ -124,11 +129,11 @@ public class ControlarUsuarios extends HttpServlet {
             System.out.println("Conectado ...");
             //Definición de Sentencia SQL
             sql = "SELECT documento FROM usuarios WHERE documento = " + doc + "";
-            
+
             sentencia = con.createStatement();
-            
+
             resultado2 = sentencia.executeQuery(sql);
-            
+
             if (resultado2.next()) {
                 request.setAttribute("doc", resultado2.getString("doc"));
                 vista = request.getRequestDispatcher("RegistrarUsuarios.jsp");
@@ -138,8 +143,8 @@ public class ControlarUsuarios extends HttpServlet {
 
                 //Definición de Sentencia SQL
                 sql = "INSERT INTO usuarios(documento,nombres,apellidos,correo,clave,genero,telefono,"
-                        + "perfil,estado) VALUES ("+doc+",'"+nombre+"','"+ ape+"','"+email
-                        +"','"+pass+"',"+genero+",'"+tel+"',"+perfil+","+estado+")";
+                        + "perfil,estado) VALUES (" + doc + ",'" + nombre + "','" + ape + "','" + email
+                        + "','" + pass + "'," + genero + ",'" + tel + "'," + perfil + "," + estado + ")";
 
                 sentencia = con.createStatement();
                 resultado = sentencia.executeUpdate(sql);
@@ -157,10 +162,7 @@ public class ControlarUsuarios extends HttpServlet {
                 if (sentencia != null) {
                     sentencia.close();
                 }
-                //cerrar conexion
-                if (con != null) {
-                    con.close();
-                }
+
             } catch (SQLException ex) {
                 request.getRequestDispatcher("Error.jsp").include(request, response);
             }
@@ -208,7 +210,7 @@ public class ControlarUsuarios extends HttpServlet {
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         //Objetos para manipular la conexion y los datos
         Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
@@ -216,8 +218,8 @@ public class ControlarUsuarios extends HttpServlet {
         String sql = "";
 
         try {
-             //ESTABLECER CONEXION
-        
+            //ESTABLECER CONEXION
+
             con = conBD.getCConexion();
             System.out.println("Conectado ...");
 
@@ -244,11 +246,11 @@ public class ControlarUsuarios extends HttpServlet {
             //listar de nuevo los datos
             todos(request, response);
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
             request.getRequestDispatcher("/Error.jsp").forward(request, response);
         }
-}
+    }
 
     @Override
     public void init() throws ServletException {
@@ -268,7 +270,7 @@ public class ControlarUsuarios extends HttpServlet {
     }
 
     private void buscar_eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
         ResultSet resultado = null;//Objeto para obtener los resultados de las consultas sql
@@ -277,7 +279,7 @@ public class ControlarUsuarios extends HttpServlet {
         //Objeto Usuario, donde se guardará la información del registro a editar
         Usuario user = null;
         try {
-            
+
             con = conBD.getCConexion();
             System.out.println("Conectado ...");
             //OBTENER EL DATO A CONSULTAR
@@ -291,7 +293,7 @@ public class ControlarUsuarios extends HttpServlet {
 
             // VER SI HAY RESULTADODOS
             while (resultado.next()) {
-               user = new Usuario(resultado.getInt(1), resultado.getString(2),
+                user = new Usuario(resultado.getInt(1), resultado.getString(2),
                         resultado.getString(3), resultado.getString(4), resultado.getString(5), resultado.getInt(6),
                         resultado.getString(7), resultado.getInt(8), resultado.getInt(9));
                 break; //debe haber un solo registro.
@@ -321,32 +323,32 @@ public class ControlarUsuarios extends HttpServlet {
 
             //redirigir la solicitud a la página JSP
             request.getRequestDispatcher("/EliminarUsuarios.jsp").include(request, response);
-            
+
         } catch (SQLException ex) {
             System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
             request.getRequestDispatcher("/Error.jsp").forward(request, response);
         }
-        
-        
-        
+
+
+
     }
 
     private void eliminaruno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       //Objetos para manipular la conexion y los datos
+        //Objetos para manipular la conexion y los datos
         Connection con = null;//Objeto para la conexion
         Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
         int resultado = 0;//resultado de las inserción sql2
         String sql = "";
 
         try {
-             //ESTABLECER CONEXION
-        
+            //ESTABLECER CONEXION
+
             con = conBD.getCConexion();
             System.out.println("Conectado ...");
 
             //OBTENER EL DATO A ELIMINAR
-            String doc = request.getParameter("doc");
-            String perfil = request.getParameter("idperfil");
+            String doc = request.getParameter("cod");
+            String perfil = request.getParameter("perfil");
 
             if ("1".equals(perfil)) {
 
@@ -364,17 +366,166 @@ public class ControlarUsuarios extends HttpServlet {
                 System.out.println("Borrado exitoso !");
                 request.setAttribute("mensaje", "Registro borrado exitosamente !");
             }
-            //listar de nuevo los datos
-            
-            request.getRequestDispatcher("/EliminarUsuarios.jsp").include(request, response);
+                       request.getRequestDispatcher("/EliminarUsuarios.jsp").include(request, response);
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
             request.getRequestDispatcher("/Error.jsp").forward(request, response);
-        }  
-        
-        
-        
-        
+        }finally {
+            try {
+                //Liberar recursos
+                if (sentencia != null) {
+                    sentencia.close();
+                }
+
+            } catch (SQLException ex) {
+                request.getRequestDispatcher("Error.jsp").include(request, response);
+            }
+        }
+
+
+
+
+    }
+
+    private void modificar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String doc = request.getParameter("doc");
+        String nombre = request.getParameter("nombre");
+        String ape = request.getParameter("ape");
+        String email = request.getParameter("correoo");
+        String pass = request.getParameter("passwor");
+        String tel = request.getParameter("tel");
+        String genero = request.getParameter("genero");
+        String perfil = request.getParameter("listaPerfil");
+        String estado = request.getParameter("estado"); //visitante
+
+        RequestDispatcher vista;
+
+        //Objetos para manipular la conexion y los datos
+        Connection con = null;//Objeto para la conexion
+        Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
+        int resultado = 0;//resultado de las inserción sql
+        String sql = "";
+
+        try {
+            //CARGAR DRIVER
+//            Class.forName(driver);
+            //ESTABLECER CONEXION
+            con = conBD.getCConexion();
+            System.out.println("Conectado ...");
+            //Definición de Sentencia SQL
+
+//            /Definición de Sentencia SQL
+            sql = "UPDATE USUARIOS SET nombres ='" + nombre + "',"
+                    + "apellidos='" + ape + "',"
+                    + "correo='" + email + "',"
+                    + "clave='" + pass + "',"
+                    + "genero=b'" +genero+"'," //el tipo de dato es un bit (0 o 1)
+                    + "telefono='" +tel+"',"
+                    + "perfil=" +perfil+ ","
+                    + "estado=b'"+estado+"'" //el tipo de dato es un bit (0 o 1)
+                    + "WHERE documento ="+doc+"";
+
+            
+             
+            sentencia = con.createStatement();
+            resultado = sentencia.executeUpdate(sql);
+            System.out.println(resultado);//numero de filas afectadas
+            request.setAttribute("mensaje", "El registro ha sido modificado");
+            vista = request.getRequestDispatcher("EditarUsuarios.jsp");
+            vista.forward(request, response);
+
+        } catch (SQLException ex) {
+            System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
+            request.getRequestDispatcher("Error.jsp").forward(request, response);
+        } finally {
+            try {
+                //Liberar recursos
+                if (sentencia != null) {
+                    sentencia.close();
+                }
+
+            } catch (SQLException ex) {
+                request.getRequestDispatcher("Error.jsp").include(request, response);
+            }
+        }
+
+
+
+    }
+
+    private void buscar_editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Connection con = null;//Objeto para la conexion
+        Statement sentencia = null;//Objeto para definir y ejecutar las consultas sql
+        ResultSet resultado = null;//Objeto para obtener los resultados de las consultas sql
+        String sql = "";
+
+        //Objeto Usuario, donde se guardará la información del registro a editar
+        Usuario user = null;
+        try {
+
+            con = conBD.getCConexion();
+            System.out.println("Conectado ...");
+            //OBTENER EL DATO A CONSULTAR
+            String doc = request.getParameter("docx");
+
+            //Definición de Sentencia SQL
+            sql = "SELECT * FROM USUARIOS WHERE documento =" + doc + "";
+            //Ejecutar sentencia
+            sentencia = con.createStatement();
+            resultado = sentencia.executeQuery(sql);
+
+            // VER SI HAY RESULTADODOS
+            while (resultado.next()) {
+                user = new Usuario(resultado.getInt(1), resultado.getString(2),
+                        resultado.getString(3), resultado.getString(4), resultado.getString(5), resultado.getInt(6),
+                        resultado.getString(7), resultado.getInt(8), resultado.getInt(9));
+                break; //debe haber un solo registro.
+            }
+            // Agregar el usuario a la solicitud
+            request.setAttribute("usuario", user);
+
+            //Agregamos los perfiles
+
+            //Definición de Sentencia SQL
+            sql = "SELECT id,perfil FROM perfiles ORDER BY perfil";
+
+            //Ejecutar sentencia
+            sentencia = con.createStatement();
+            resultado = sentencia.executeQuery(sql);
+
+            //arreglo donde se guardaran los perfiles encontrados en la BD
+            ArrayList perfiles = new ArrayList();
+            while (resultado.next()) //si el resultado tiene datos empezar a guardarlos.
+            {
+                Perfil p = new Perfil(resultado.getString(2), resultado.getInt(1));
+                //Agregamos el perfil (FILA) encontrado al arreglo
+                perfiles.add(p);
+            }
+            // Agregar el arreglo de perfiles a la solicitud
+            request.setAttribute("Perfiles", perfiles);
+
+            //redirigir la solicitud a la página JSP
+            request.getRequestDispatcher("/EditarUsuarios.jsp").include(request, response);
+
+        } catch (SQLException ex) {
+            System.out.println("No se ha podido establecer la conexión, o el SQL esta mal formado " + sql);
+            request.getRequestDispatcher("/Error.jsp").forward(request, response);
+        }finally {
+            try {
+                //Liberar recursos
+                if (sentencia != null) {
+                    sentencia.close();
+                }
+
+            } catch (SQLException ex) {
+                request.getRequestDispatcher("Error.jsp").include(request, response);
+            }
+        }
+
+
+
     }
 }

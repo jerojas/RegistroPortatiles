@@ -186,11 +186,12 @@
         <div class= "alerta" id="errordoc">
         </div>
         
-
     </div>
-    
-
+    <br>
+    <br>
+    <br>
 </div>
+    
 <div id="finalpaginausuarios">
     <br>
     CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>

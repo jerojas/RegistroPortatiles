@@ -3,31 +3,39 @@
     Created on : 15/10/2012, 04:32:20 PM
     Author     : JEOVANY
 --%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
+<%@page import="Entidades.*"%>
 <%
 
-        String nombre = request.getParameter("correoo");
-        String codigo = (String)request.getAttribute("cod");
-    Integer guardo = (Integer) request.getAttribute("guardoOK");
-    String codnoexiste = request.getAttribute("codexiste") == null ? "" : (String) request.getAttribute("codexiste");
-    String mensaje = "";
-    String mensaje2 = "";
-     String mensaje3 = "";
-    String accion = "insertar";//la acción será un nuevo registro 
-    
-    if (guardo != null) {
-        mensaje2 = "Registro ingresado exitosamente";
-    }
-    
    
-    
+    Portatil e = (Portatil) request.getAttribute("portatil");
+
+    String cod = "";
+    String mac = "";
+    String marca = "";
+    String color = "";
+ 
+
+     String accion = "modificar";//la acción será un nuevo registro 
+
+    if (e != null) //si el usuario no es nulo significa que es modificación
+    {
+        cod = Integer.toString(e.getCod());
+        mac = e.getMac();
+        marca = e.getMarca();
+        color = e.getColor();
+       
+    }
+
+
+        
   %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Portatil</title>
+        <title>Modificar Portatil</title>
         <link type="text/css" href="css/estiloregistrarportatil.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scriptsreportatiles.js"></script>
@@ -59,19 +67,17 @@
                     <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Portátiles</span></a>
                         <ul>
                             <li><a href="RegistrarPortatiles.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Portatiles</a></li>
-                            <li><a href="EditarEliminarPortatiles.jsp"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
+                            <li><a href="EditarEliminarUser.jsp"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Portátiles</a></li>
                         </ul></li>
                         <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service.png" alt=""/>Gestionar Propietarios</span></a>
                         <ul>
-                            <li><a href="RegistrarPropietarios.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Propietarios</a></li>
-                            <li><a href="EditarPropietarios.jsp"><img src="css3menu1/256sub21.png" alt=""/>Modificar Propietarios</a></li>
-                             <li><a href="EliminarPropietarios.jsp"><img src="css3menu1/256sub21.png" alt=""/>Eliminar Propietarios</a></li>
+                            <li><a href="RegistrarPortatiles.jsp"><img src="css3menu1/256sub11.png" alt=""/>Registrar Propietarios</a></li>
+                            <li><a href="EditarEliminarUser.jsp"><img src="css3menu1/256sub21.png" alt=""/>Editar y Eliminar Propietarios</a></li>
                         </ul></li>
-                    <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Usuarios</span></a>
+                    <li class="topmenu"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/service1.png" alt=""/>Gestionar Porteros</span></a>
                         <ul>
-                            <li><a href="RegistrarUsuarios.jsp"><img src="css3menu1/256sub1.png" alt=""/>Registrar Usuarios</a></li>
-                            <li><a href="EditarUsuarios.jsp"><img src="css3menu1/256sub2.png" alt=""/>Modificar Usuarios</a></li>
-                            <li><a href="EliminarUsuarios.jsp"><img src="css3menu1/256sub2.png" alt=""/>Eliminar Usuarios</a></li>
+                            <li><a href="#"><img src="css3menu1/256sub1.png" alt=""/>Registrar Porteros</a></li>
+                            <li><a href="#"><img src="css3menu1/256sub2.png" alt=""/>Editar y Eliminar Porteros</a></li>
                         </ul></li>
                     <li class="toplast"><a href="#" style="height:32px;line-height:32px;"><span><img src="css3menu1/256sub12.png" alt=""/>Reportes</span></a>
                         <ul>
@@ -83,15 +89,15 @@
             <form name="reg"  id="reg" method="POST" action="ControlarPortatiles"> 
 
                 <fieldset id="marcos" >
-                    <legend><strong>Registrar Portatil  </strong> </legend>
+                    <legend><strong>Modificar Portatil  </strong> </legend>
                     <div class="principal" align="CENTER" >
-                        <ul >
+                        <ul>
                             <div id="prifila">
                                  <li id="li_9" >
                               
                                     <label class="description" for="element_8">Código del Propietario: </label>
                                     <div>
-                                        <input id="cod" name="cod" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="cod" name="cod" class="element text medium" type="text" maxlength="255" value="<%=cod%>"/> 
                                     </div> 
                                 </li>
                                 
@@ -99,21 +105,21 @@
                               
                                     <label class="description" for="element_8">Mac: </label>
                                     <div>
-                                        <input id="mac" name="mac" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="mac" name="mac" class="element text medium" type="text" maxlength="255" value="<%=mac%>"disabled="" /> 
                                     </div> 
                                 </li>
                             </div>
                              <div id="segfila">
                                 <li id="li_7" >
-                                    <label class="description" for="element_7">Marca del Portátil: </label>
+                                <label class="description" for="element_7">Marca del Portátil: </label>
                                     <div>
-                                        <input id="pc" name="pc" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="marca" name="marca" class="element text medium" type="text" maxlength="255" value="<%=marca%>"/> 
                                     </div> 
                                 </li>
                                 <li id="li_7" >
                                     <label class="description" for="element_7">Color: </label>
                                     <div>
-                                        <input id="color" name="color" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="color" name="color" class="element text medium" type="text" maxlength="255" value="<%=color%>"/> 
                                     </div> 
                                 </li>   
                             
@@ -121,7 +127,7 @@
                         </ul>
 
                         <div class="btn">
-                            <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRAR"/>
+                            <input type="submit" class="button medium blue" id = "validar" name="validar" value="MODIFICAR"/>
                             <br>
                             <br> 
                           </div>
@@ -129,50 +135,15 @@
                     </div>
                 </fieldset>
                 <br>
-                
-                  <b><font color="RED"><%=mensaje2%></font></b>
-                  <b><font color="RED"><%=codnoexiste%></font></b>  
+                                 
                 <input type="hidden" name="accion" value="<%=accion%>" />
+                  <input type="hidden" name="mac" value="<%=mac%>" />
             </form>
-            <div class = "ale" id = "capaerrores"  style="display: none;" >
-                Información mal ingresada por favor corrija lo siguiente:
-                <br>
-                <div class= "alerta" id="errorcodigo" >
-                </div>
-                <div class= "alerta" id="errornombre" >
-                </div>
-                <div class= "alerta" id="errorape">
-                </div>
-                <div class= "alerta" id="errordoc">
-                </div>
-                <div class= "alerta"  id="errorcorreoo">
-                </div>
-                <div class= "alerta" id="errorvalcorreoo">
-                </div>
-                <div class= "alerta" id="errorpasswor">
-                </div>
-                <div class= "alerta" id="errorrepitapassword">
-                </div>
-                <div class= "alerta" id="errorcarrera">
-                </div>
-                <div class= "alerta" id="errortel">
-                </div>
-                <div class= "alerta" id="errorvalpassword">
-                </div>
-                <div class= "alerta" id="errorsemestre">
-                </div>
-                <div class= "alerta" id="errormac">
-                </div>
-                <div class= "alerta" id="errorpc">
-                </div>
-                <div class= "alerta" id="errorcolor">
-                </div>
-            </div>
+             <br>
             <br>
-            <br>
-            <Br>
+            <Br> 
         </div>
-        <div id="finalpaginalogin">
+         <div id="finalpaginalogin">
             <br>
             CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
             Medellin - Colombia <br>

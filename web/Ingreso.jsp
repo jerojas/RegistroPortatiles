@@ -61,7 +61,7 @@
                         <input name="Codigo" class="Codigo" type="text" id="Codigo" value="" >
                         <br>
                         <br>
-                        <input   value="Ingresar" type="reset" id="Ingresar" class="button large blue"  > 
+                        <input   value="Ingresar" type="button" id="Ingresar" class="button large blue"  > 
 
                     </div>
             </form>

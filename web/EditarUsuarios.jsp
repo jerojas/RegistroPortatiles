@@ -3,39 +3,54 @@
     Created on : 15/10/2012, 04:32:20 PM
     Author     : JEOVANY
 --%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
+<%@page import="Entidades.*"%>
 <%
+    String editado = request.getAttribute("mensaje") == null ? "" : (String) request.getAttribute("mensaje");
+    //Parámetros de entrada
+    Usuario e = (Usuario) request.getAttribute("usuario");
 
-        String nombre = request.getParameter("correoo");
-        String codigo = (String)request.getAttribute("cod");
-    Integer guardo = (Integer) request.getAttribute("guardoOK");
-    String mensaje = "";
-    String mensaje2 = "";
-     String mensaje3 = "";
-    String accion = "insertar";//la acción será un nuevo registro 
-    
-    if (guardo != null) {
-        mensaje2 = "Registro ingresado exitosamente";
+    String doc = "";
+    String nombre = "";
+    String apellidos = "";
+    String email = "";
+    String clave = "";
+    String telefono = "";
+    int genero = 2;
+    int idperfil = -1;
+    String estado = "";
+
+    String accion = "buscarxaeditar";//por defecto es un nuevo registro
+
+    if (e != null) //si el usuario no es nulo significa que es modificación
+    {
+        doc = Integer.toString(e.getDoc());
+        nombre = e.getNombres();
+        apellidos = e.getApellidos();
+        email = e.getCorreo();
+        clave = e.getClave();
+        telefono = e.getTelefono();
+        genero = e.getGenero();
+        idperfil = e.getIdperfil();
+        estado = Integer.toString(e.getEstado());
+
     }
-    
-    if (codigo != null ) {
-        mensaje3 = "El Código ya existe. Por favor digite otro codigo ";
-    }
-    
 
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Usuarios</title>
-        <link type="text/css" href="css/estiloeditarusuario.css" rel="stylesheet" />
+        <title>Editar Usuarios</title>
+        <link type="text/css" href="css/estiloreliminarusuario.css" rel="stylesheet" />
         <script src = "js/jquery-1.8.0.min.js"></script>
         <script src = "js/scripts.js"></script>
         <script src = "js/jquery-ui-1.8.23.custom.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css"/> 
         <link rel="stylesheet" type="text/css" href="css/view.css" media="all">
-             <link type="text/css" href="css/Botones.css" rel="stylesheet" />
+        <link type="text/css" href="css/Botones.css" rel="stylesheet" />
         <script type="text/javascript" src="js/view.js"></script>
 
         <link rel="stylesheet" href="css3menu1/style.css" type="text/css" /><style>._css3m{display:none}</style>
@@ -71,134 +86,165 @@
                         <ul>
                             <li><a href="#"><img src="css3menu1/256sub13.png" alt=""/>Generar Reporte </a></li>
                         </ul></li>
-                </ul><p class="_css3m"><a href="http://css3menu.com/">CSS Horizontal Drop Down Menu Css3Menu.com</a></p>
+
             </div>
 
-
-                <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
-
+            <form name="elim"  id="elim" method="POST" action="ControlarUsuarios"> 
+                <div id="cajabuscar" >
+                    <div>
+                        <br>
+                        <br>
+                        <label class="busqueda" for="element_1">Digite el Documento a Modificar:</label>
+                        <br>
+                        <br>
+                    </div>
+                    <div>
+                        <input id="docx" name="docx" class="camp" type="text" maxlength="255" value="" required autofocus/> 
+                    </div>
+                </div>
+                <div id="btnbuscar">
+                    <br>
+                    <input type="submit" class="buscar" id = "buscar" name="buscar"  value="BUSCAR" /> 
+                </div>
+                <input type="hidden" name="accion" value="<%=accion%>" />
+            </form>
+            <b><font color="RED"><%=editado%></font></b>
+            <form name="reg"  id="reg" method="POST" action="ControlarUsuarios"> 
                 <fieldset id="marcos">
-                    <legend><strong>Registrar Usuario </strong></legend>
+                    <legend><strong>Modificar Usuario </strong></legend>
                     <div class="principal">
                         <ul >
                             <div id="prifila">
-                            <li id="li_1" >
-                                <label class="description" for="element_1">Documento: <font color="RED">*</font></label>
-                                <div>
-                                    <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>	
-                            <li id="li_8" >
-                                <label class="description" for="element_8">Nombre: <font color="RED">*</font></label>
-                                <div>
-                                    <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>		<li id="li_9" >
-                                <label class="description" for="element_9">Apellidos: <font color="RED">*</font></label>
-                                <div>
-                                    <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value=""/> 
-                                </div> 
-                            </li>
+
+                                <li id="li_1" >
+                                    <label class="description" for="element_1">Documento:</label>
+                                    <div>
+                                        <input id="doc" name="doc" class="element text medium" type="text" maxlength="255" value="<%=doc%>" <%=e != (null) ? " disabled" : ""%> required  /> 
+                                    </div> 
+                                </li>	
+                                <li id="li_8" >
+                                    <label class="description" for="element_8">Nombre: </label>
+                                    <div>
+                                        <input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value="<%=nombre%>" required  /> 
+                                    </div> 
+                                </li>		<li id="li_9" >
+                                    <label class="description" for="element_9">Apellidos: </label>
+                                    <div>
+                                        <input id="ape" name="ape" class="element text medium" type="text" maxlength="255" value="<%=apellidos%>" required  /> 
+                                    </div> 
+                                </li>
                             </div>
                             <div id="segfila">
-                                
+
                                 <li id="li_4" >
-                                    <label class="description" for="element_4">Email: <font color="RED">*</font></label>
+                                    <label class="description" for="element_4">Email: </label>
                                     <div>
-                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="correoo" name="correoo" class="element text medium" type="text" maxlength="255" value="<%=email%>"   /> 
                                     </div> 
                                 </li>		<li id="li_5" >
-                                    <label class="description" for="element_5">Password: <font color="RED">*</font></label>
+                                    <label class="description" for="element_5">Password: </label>
                                     <div>
-                                        <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value=""/> 
+                                        <input id="passwor" name="passwor" class="element text medium" type="password" maxlength="255" value="<%=clave%>"required  /> 
                                     </div> 
                                 </li>	
 
                                 <li id="li_6" >
-                                    <label class="description" for="element_6">Repita Password: <font color="RED">*</font></label>
+                                    <label class="description" for="element_6">Estado:</label>
                                     <div>
-                                        <input id="repitapassword" name="repitapassword" class="element text medium" type="password" maxlength="255" value="" />
+                                        <input id="estado" name="estado" class="element text medium" type="text" maxlength="255" value="<%=estado%>"  />
                                     </div>
-                                     </li>
+                                </li>
                             </div>
-                            
+
                             <div id="terfila">
-                           		
-                            <li id="li_2" >
-                                    <label class="description" for="element_2">Género: <font color="RED">*</font></label>
+
+                                <li id="li_2" >
+                                    <label class="description" for="element_2">Género: </label>
                                     <div>
-                                       
-                                         <select  name="genero" size = 1 id = "genero" class="element text medium" >
-                                    <option value="2"> Seleccione el género</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="0">Femenino</option>
-                                </select> 
+
+                                        <select  name="genero" size = 1 id = "genero" class="element text medium" >
+                                            <option value = "2" >Seleccione el Género</option>
+                                            <%
+                                                if (accion.equals("buscarxaeditar")) {
+                                                    if (genero == 0) {%>
+                                            <option value="0" selected>Femenino</option>
+                                            <option value="1">Masculino</option>
+                                            <%} else {
+                                            %>
+                                            <option value="0" >Femenino</option>
+                                            <option value="1" selected>Masculino</option>
+                                            <%}
+                                            } else { //es un nuevo registro
+                                            %>
+                                            <option value="2" selected>Seleccione el Género </option>
+                                            <option value="0">Femenino</option>
+                                            <option value="1">Masculino</option>
+                                            <%}//fin accion
+                                            %>
+                                        </select> 
                                     </div> 
                                 </li>			<li id="li_7" >
-                            <label class="description" for="element_7">Teléfono: </label>
-                            <div>
-                                <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value=""/> 
-                            </div> 
-                        </li>
+                                    <label class="description" for="element_7">Teléfono: </label>
+                                    <div>
+                                        <input id="tel" name="tel" class="element text medium" type="text" maxlength="255" value="<%=telefono%>" required /> 
+                                    </div> 
+                                </li>
+                                <li id="li_8" >
+                                    <label class="description" for="element_7">Perfil: </label>
+                                    <div class ="campo">
+
+                                        <select name="listaPerfil" size = 1 id = "perfil" class="element text medium" required >
+                                            <option value="0" selected>
+                                                Seleccionar el Perfil
+                                            </option>
+                                            <%List ListaPerfiles = (List) request.getAttribute("Perfiles");//se recibe el arreglo
+                                                System.out.print("Cargando Perfiles...");
+                                                Perfil oPerfil = null;//se define un objeto 
+                                                for (int i = 0; i < ListaPerfiles.size(); i++) {
+                                                    oPerfil = (Perfil) ListaPerfiles.get(i);%>
+                                            <option value="<%=oPerfil.getId()%>" <%= idperfil == oPerfil.getId() ? " selected" : ""%>>
+                                                <%=oPerfil.getNombre()%>
+                                            </option>
+                                            <%}%>
+                                        </select>
+                                    </div> 
+                                </li>
+                            </div>
+                        </ul>      
+
+                       
+
 
                     </div>
-                </ul>
-                    
-            </div>
-                    
-        </fieldset> 
-                    <div id="aster"> <b><font color="RED">(*)</font></b> Campos Obligatorios</div>
+
+                </fieldset> 
                 <div class="btn">
-                    <input type="button" class="button medium blue" id = "validar" name="validar" value="REGISTRARSE"/>
+                    <input type="submit" class="button medium blue" id = "validarr" name="validarr" value="GUARDAR"/>
                     <br>
                     <br> 
-       <b><font color="RED"><%=mensaje2%></font></b>
-       <b><font color="RED"><%=mensaje3%></font></b>               
+
 
                 </div>
-                 <input type="hidden" name="accion" value="<%=accion%>" />
-    </form>
+                <input type="hidden" name="accion" value="modificar" />
+                <input type="hidden" name="doc" value="<%=doc%>" />
 
 
-    <div class = "ale" id = "capaerrores"  style="display: none;" >
-        Información mal ingresada por favor corrija lo siguiente:
-        <br>
-         <div class= "alerta" id="errorcodigo" >
-        </div>
-        <div class= "alerta" id="errornombre" >
-        </div>
-        <div class= "alerta" id="errorape">
-        </div>
-        <div class= "alerta"  id="errorcorreoo">
-        </div>
-        <div class= "alerta" id="errorvalcorreoo">
-        </div>
-        <div class= "alerta" id="errorpasswor">
-        </div>
-        <div class= "alerta" id="errorrepitapassword">
-        </div>
-        <div class= "alerta" id="errorcarrera">
-        </div>
-        <div class= "alerta" id="errortel">
-        </div>
-        <div class= "alerta" id="errorvalpassword">
-        </div>
-        <div class= "alerta" id="errordoc">
-        </div>
-        
+                <br>
+                <br> 
 
-    </div>
-    
 
-</div>
-<div id="finalpaginausuarios">
-    <br>
-    CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
-    Medellin - Colombia <br>
-    JEOVANY ROJAS MEDINA <br>
-    SERGIO MOSQUERA <br>
-    AÑO 2012 
-</div>
+            </form>
 
-</body>
+
+        </div>
+        <div id="finalpaginausuarios">
+            <br>
+            CORPORACIÓN UNIVERSITARIA  ADVENTISTA<br>
+            Medellin - Colombia <br>
+            JEOVANY ROJAS MEDINA <br>
+            SERGIO MOSQUERA <br>
+            AÑO 2012 
+        </div>
+
+    </body>
 </html>
